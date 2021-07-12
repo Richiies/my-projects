@@ -1,0 +1,34 @@
+sentence = input()
+s = sentence.split()
+s.sort()
+result = []
+for word1 in s:
+    for word2 in s:
+        result.append(word1 + " " + word2)
+
+result = set(result)
+result = list(result)
+result.sort()
+
+
+for item in result:
+    if item in sentence:
+        result.remove(item)
+
+for item in result:
+    if " ".join(item.split()[::-1]) in sentence:
+        result.remove(item)
+
+for item in result:
+    spl = item.split()
+    if (spl[0] == spl[1]) and (sentence.count(spl[0]) < 2):
+        result.remove(item)
+
+for item in result:
+    spl = item.split()
+    dup = spl[1] + " " + spl[0]
+    if dup in result:
+        result.remove(dup)
+
+for item in result:
+    print(item)

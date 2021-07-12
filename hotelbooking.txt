@@ -1,0 +1,63 @@
+<div class="hotelpagebg-container d-flex flex-column justify-content-end ">
+        <div class="hotel-card-container ">
+            <div>
+                <h1 class="hotel-header">
+                    Royal grand Hotel
+                </h1>
+                <p class="hotelpara">
+                    R.K. Beach, Vishakapatnam
+                </p>
+                <p class="rupeespara">1200/-</p>
+            </div>
+        </div>
+        <div class="btn-container">
+            <button class="bknowbtn btn-secondary">Book Now</button>
+        </div>
+
+    </div>
+
+
+
+.hotelpagebg-container {
+    background-image: url('https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/hotelbg.png');
+    height: 150vh;
+    background-size: cover;
+    width: 100vw;
+    padding: 10px;
+}
+
+.hotel-card-container {
+    margin: 10px;
+    background-color: #000000e6;
+    border-radius: 16px;
+    padding: 15px;
+}
+.hotel-header {
+    font-family: Bree Serif;
+    font-size: 25px;
+    color: white;
+}
+.hotelpara {
+    font-family: Roboto;
+    font-size: 15px;
+    color: white;
+}
+.rupeespara {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+.bknowbtn {
+    color: black;
+    background: white;
+    height: 40px;
+    width: 119px;
+    border-radius: 10px;
+    border-width: 0px;
+    font-size: 13px;
+}
+
+.btn-container {
+    text-align: center;
+    margin: 20px;
+}

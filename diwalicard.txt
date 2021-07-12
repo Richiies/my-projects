@@ -1,0 +1,91 @@
+ <div class="diwali-top-section">
+      <h1 class="diwali-top-section-heading">
+        Celebrate Diwali with your friends
+      </h1>
+    </div>
+    <div class="diwali-bottom-section">
+      <div class="d-flex flex-row justify-content-center">
+        <div class="diwali-card-item">
+          <img
+            src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/lamp-img.png"
+            class="diwali-card-image"
+          />
+          <h1 class="diwali-card-name">Diwali Air Balloon</h1>
+          <p class="diwali-card-price">Rs 369</p>
+        </div>
+
+        <div class="diwali-card-item">
+          <img
+            src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/diya-img.png"
+            class="diwali-card-image"
+          />
+          <h1 class="diwali-card-name">Diwali - Lamp</h1>
+          <p class="diwali-card-price">Rs 50</p>
+        </div>
+      </div>
+      <div class="d-flex flex-row justify-content-center">
+        <div class="diwali-card-item">
+          <img
+            src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/firework-img.png"
+            class="diwali-card-image"
+          />
+          <h1 class="diwali-card-name">Sparklers</h1>
+          <p class="diwali-card-price">Rs 150</p>
+        </div>
+
+        <div class="diwali-card-item">
+          <img
+            src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/firecracker-img.png"
+            class="diwali-card-image"
+          />
+          <h1 class="diwali-card-name">Fire Cracker</h1>
+          <p class="diwali-card-price">Rs 560</p>
+        </div>
+      </div>
+      <button class="btn btn-primary">View More</button>
+    </div>
+
+
+.diwali-top-section {
+  background-image: url("https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/diwali-bg.png");
+  height: 30vh;
+  background-size: cover;
+}
+.diwali-top-section-heading {
+  color: white;
+  font-family: "Caveat";
+  font-size: 36px;
+  width: 200px;
+  padding: 20px;
+}
+.diwali-bottom-section {
+  text-align:center;
+  background-color: #e6f6ff;
+  padding:15px;
+}
+.diwali-card-item {
+  text-align: center;
+  background-color: white;
+  width:140px;
+  border-radius: 9px;
+  padding: 16px;
+  margin: 15px;
+}
+.diwali-card-image {
+  height: 64px;
+  width: 64px;
+}
+.diwali-card-name {
+  color: #616e7c;
+  font-family: "Roboto";
+  font-size: 12px;
+  font-weight: normal;
+}
+.diwali-card-price {
+  color: #323f4b;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 500;
+}
+
+

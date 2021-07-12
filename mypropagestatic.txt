@@ -1,0 +1,580 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/c2eab03195.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top ">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+            <h1 class="nave-headingg pl-2">R.</h1>
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+                <a class="nav-link active" href="#bannersection">
+                    Home <span class="sr-only">(current)</span>
+                </a>
+                <a class="nav-link" href="#aboutmesection">About Me</a>
+                <a class="nav-link" href="#projectsection">Projects</a>
+                <a class="nav-link" href="#whatidosection">Services</a>
+                <a class="nav-link" href="#myprojectsection">My Works Include</a>
+                <a class="nav-link" href="#testimonilassection">Testimonials</a>
+            </div>
+        </div>
+    </nav>
+    <div id="bannersection" class=" banner-section  d-flex flex-column justify-content-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6 order-md-2 ">
+                    <div class="mt-5 p-5">
+                        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/portfolio-banner-img.png" class=" w-100" />
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 order-md-1  text-sm-center d-flex flex-column justify-content-center">
+                    <div class="mb-3">
+                        <h1 class="hh1"> Hey , I am <span class="span1">Richie</span> </h1>
+                        <p class="pp">I am a Frontend developer & mentor</p>
+                        <button class="btn btn-primary"><a style="color:white;" href="#footersection">Contact Me</a></button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="aboutmesection" class="bg-container pt-5 pb-5 pl-3 pr-3">
+        <div class="container ">
+            <div class="row mb-3">
+                <div class="col-12  col-md-6 order-md-2 d-flex flex-column justify-content-center">
+                    <h1 class="hh2">Facts</h1>
+                    <h2> About Me</h2>
+                    <img src="https://scontent.fvga1-2.fna.fbcdn.net/v/t31.18172-8/14124519_616156931897724_5729692538020902402_o.jpg?_nc_cat=100&ccb=1-3&_nc_sid=174925&_nc_ohc=_s0ti0n61CYAX_dx38T&_nc_ht=scontent.fvga1-2.fna&oh=dd53119c28a3ff3a8f0459885ec33f4e&oe=608E6652" class="w-100 d-md-none mb-3" />
+                    <p class="mt-2 mb-3">My name is Daya Richard Son, and i am currently looking for a job in frontend development. i have 3 years of experience working as a
+                        front-developer. i have bachelor's deegree in lectronics and communication. people find me to be an Upbeat, self-motivated team player with excellent communication skills.</p>
+                    <p class=" mb-3">I am a dedicated person with a family of four. I enjoy reading, nd the knowledge and perspective that me reaading gives me have strengthened my teaching skills and presentation abilities</p>
+                </div>
+                <div class="col-12 col-md-6 order-md-1 d-md-block d-none">
+                    <img src="https://scontent.fvga1-2.fna.fbcdn.net/v/t31.18172-8/14124519_616156931897724_5729692538020902402_o.jpg?_nc_cat=100&ccb=1-3&_nc_sid=174925&_nc_ohc=_s0ti0n61CYAX_dx38T&_nc_ht=scontent.fvga1-2.fna&oh=dd53119c28a3ff3a8f0459885ec33f4e&oe=608E6652" class=" h-100 w-100" />
+                </div>
+
+
+            </div>
+
+            <div class="bottom-section pt-5 pb-5 pl-3 pr-3">
+                <div class="shadow">
+                    <div class="row">
+                        <div class="col-12">
+                            <h1 class="hh2">Skills :</h1>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="p-card pr-3 pl-3 pt-1 ml-3 mr-3 mb-2 text-center">
+                                <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/portfolio-skills-html-img.png" class="icon-siz" />
+                                <p class="icon-head">HTML</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="p-card pr-3 pl-3 pt-1 ml-3 mr-3 mb-2 text-center">
+                                <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/portfolio-skills-css-img.png" class="icon-siz" />
+                                <p class="icon-head">CSS</p>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-3">
+                            <div class="p-card  pr-3 pl-3 pt-1 ml-3 mr-3 mb-2 text-center">
+                                <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/portfolio-skills-bootstrap-img.png" class="icon-siz" />
+                                <p class="icon-head">Bootstrap</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="p-card pr-3 pl-3 pt-1 ml-3 mr-3 mb-2 text-center">
+                                <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/portfolio-skills-js-img.png" class="icon-siz" />
+                                <p class="icon-head">JS</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div id="projectsection" class="bg1-container pt-5 pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="hh11"> Portfolio</h1>
+                    <h1 class="por-heading"> Projects I have done </h1>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="shadow card-r mb-2 ">
+                        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/portfolio-project-1-img.png" class="w-100" />
+                        <div class="container pt-2 pb-3 mb-2" style="background-color: #323f4b;">
+                            <h1 class="web-head"> Web design</h1>
+                            <h1 class="hotel-head"> Royal Grand Hotel</h1>
+                            <p class="Royal-para">Royl Grand Hotel is a simple static website. we can Use this layout for building the other websites</p>
+                            <a href="" class="linkR">Read More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                                </svg></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="shadow card-r ">
+                        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/portfolio-project-2-img.png" class="w-100" />
+                        <div class="container pt-2 pb-3 mb-2" style="background-color: #323f4b;">
+                            <h1 class="web-head"> Web design</h1>
+                            <h1 class="hotel-head"> Happy Meals</h1>
+                            <p class="Royal-para">Happy meals is the best-in-classs food ordering page today. With interactive UI/UX and simple call to actions..</p>
+                            <a href="" class="linkR">Read More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                                </svg></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div id="whatidosection" class="bg-st-container pt-5 pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 style="color:#cced00; font-size: 15px;">Services</h1>
+                    <h1 class="what-head"> What I do</h1>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="shadow st-card p-3 mb-3">
+                        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/portfolio-web-design-img.png" class="logo-sizing">
+                        <h1 class="what-head"> Static Websites</h1>
+                        <p class="st-para"> A Static Websites contains Web pages with fixed content. Each pae is deeveloped using HTML and CSS and display the same information to every vistor</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="shadow st-card p-3 mb-3">
+                        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/portfolio-web-development-img.png" class="logo-sizing">
+                        <h1 class="what-head"> Responsive Web design</h1>
+                        <p class="st-para"> Responsive Web design is the aporach that suggests that design andd development should respond tothe user's behaviour and environment based on screen size, platform and oreintation.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class=" shadow st-card p-3 mb-3">
+                        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/portfolio-customize-img.png" class="logo-sizing" />
+                        <h1 class="what-head"> Customisable Layouts</h1>
+                        <p class="st-para"> Customisable Layouts is the aporach that suggests that design andd development should respond tothe user's behaviour and environment based on screen size, platform and oreintation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="myprojectsection" class="container-image p-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 mb-2">
+                    <h1 class="hh2">My Projects</h1>
+                </div>
+                <div class="col-4">
+                    <div class=" text-center ">
+                        <svg id="icon-styling" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-up" viewBox="0 0 16 16">
+                            <path d="M8.864.046C7.908-.193 7.02.53 6.956 1.466c-.072 1.051-.23 2.016-.428 2.59-.125.36-.479 1.013-1.04 1.639-.557.623-1.282 1.178-2.131 1.41C2.685 7.288 2 7.87 2 8.72v4.001c0 .845.682 1.464 1.448 1.545 1.07.114 1.564.415 2.068.723l.048.03c.272.165.578.348.97.484.397.136.861.217 1.466.217h3.5c.937 0 1.599-.477 1.934-1.064a1.86 1.86 0 0 0 .254-.912c0-.152-.023-.312-.077-.464.201-.263.38-.578.488-.901.11-.33.172-.762.004-1.149.069-.13.12-.269.159-.403.077-.27.113-.568.113-.857 0-.288-.036-.585-.113-.856a2.144 2.144 0 0 0-.138-.362 1.9 1.9 0 0 0 .234-1.734c-.206-.592-.682-1.1-1.2-1.272-.847-.282-1.803-.276-2.516-.211a9.84 9.84 0 0 0-.443.05 9.365 9.365 0 0 0-.062-4.509A1.38 1.38 0 0 0 9.125.111L8.864.046zM11.5 14.721H8c-.51 0-.863-.069-1.14-.164-.281-.097-.506-.228-.776-.393l-.04-.024c-.555-.339-1.198-.731-2.49-.868-.333-.036-.554-.29-.554-.55V8.72c0-.254.226-.543.62-.65 1.095-.3 1.977-.996 2.614-1.708.635-.71 1.064-1.475 1.238-1.978.243-.7.407-1.768.482-2.85.025-.362.36-.594.667-.518l.262.066c.16.04.258.143.288.255a8.34 8.34 0 0 1-.145 4.725.5.5 0 0 0 .595.644l.003-.001.014-.003.058-.014a8.908 8.908 0 0 1 1.036-.157c.663-.06 1.457-.054 2.11.164.175.058.45.3.57.65.107.308.087.67-.266 1.022l-.353.353.353.354c.043.043.105.141.154.315.048.167.075.37.075.581 0 .212-.027.414-.075.582-.05.174-.111.272-.154.315l-.353.353.353.354c.047.047.109.177.005.488a2.224 2.224 0 0 1-.505.805l-.353.353.353.354c.006.005.041.05.041.17a.866.866 0 0 1-.121.416c-.165.288-.503.56-1.066.56z" />
+                        </svg>
+                        <hr class="line-style" />
+                        <h1 class="hh2">10</h1>
+                        <p class="pp2"> Projects completed</p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class=" text-center ">
+                        <svg id="icon-styling" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">
+                            <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+                            <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z" />
+                        </svg>
+                        <hr class="line-style" />
+                        <h1 class="hh2">2,800</h1>
+                        <p class="pp2"> Lines of Code</p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class=" text-center ">
+                        <svg id="icon-styling" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                            <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" />
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
+                        </svg>
+                        <hr class="line-style" />
+                        <h1 class="hh2">15</h1>
+                        <p class="pp2"> Hours Worked</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="testimonilassection" class="testmonials-container p-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="tes-head">Testimonials</h1>
+                    <h1 class="our-members">Our Members Says</h1>
+                </div>
+                <div class="col-12">
+                    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="section-card text-center">
+                                    <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/portfolio-testimonials-1-img.png" class="image-sizingg" alt="...">
+                                    <p class="para-text-1">FJenny is one of the best hard-working deveeloper and it was great opportunity to work with him</p>
+                                    <p class="para-text">Helen co-founder of Horticulture</p>
+
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class=" section-card text-center">
+                                    <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/portfolio-testimonials-2-img.png" class="image-sizingg" alt="...">
+                                    <p class="para-text-1">FJenny is one of the best hard-working deveeloper and it was great opportunity to work with him</p>
+                                    <p class="para-text">Helen co-founder of Horticulture</p>
+                                </div>
+                            </div>
+
+                            <div class="carousel-item">
+                                <div class=" section-card text-center">
+                                    <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/portfolio-testimonials-3-img.png" class="image-sizingg" alt="...">
+                                    <p class="para-text-1">FJenny is one of the best hard-working deveeloper and it was great opportunity to work with him</p>
+                                    <p class="para-text">Helen co-founder of Horticulture</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-3 text-right">
+                            <a href="#carouselExampleCaptions" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+
+                            <a href="#carouselExampleCaptions" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="footersection" class="foot-container pt-3 pb-3 pr-2 pl-2">
+        <div class="container ">
+            <div class="row">
+                <div class="col-12 col-md-3 p-1">
+                    <div class="d-flex flex-row pt-3 ">
+                        <img src="https://scontent.fvga1-2.fna.fbcdn.net/v/t31.18172-8/13235099_570176416495776_834439785167828741_o.jpg?_nc_cat=104&ccb=1-3&_nc_sid=174925&_nc_ohc=gBbly0Pj-S8AX8rUBO1&_nc_ht=scontent.fvga1-2.fna&oh=8b60e52fca7ccd5ac8b2f708b0b934ac&oe=608EA74E" class="img-styling" />
+                        <div class="ml-3">
+                            <h1 class="hh3"> Richie</h1>
+                            <p class="pp3"> Frontend Developer</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 pt-3">
+                    <h1 class="hh3">Phone No.</h1>
+                    <div class="d-flex flex-row ">
+                        <i class="fas fa-phone-alt styling"></i>
+                        <p class="pp3 pl-3">9876543250</p>
+                    </div>
+
+                </div>
+                <div class="col-12 col-md-3 pt-3">
+                    <h1 class="hh3">E-mail</h1>
+                    <div class="d-flex flex-row ">
+                        <i class="fas fa-envelope styling"></i>
+                        <p class=" pp3 pl-3  ">dayarichards@gmail.com</p>
+                    </div>
+
+                </div>
+                <div class="col-12 col-md-3 pt-3">
+                    <h1 class="hh3">Address</h1>
+                    <div class="d-flex flex-row ">
+                        <i class="fas fa-map-marked-alt styling"></i>
+                        <p class=" pp3 pl-3">17 Hyderabad India</p>
+                    </div>
+
+                </div>
+                <div class="col-12">
+                    <hr class="linestyl" />
+                </div>
+                <div class="col-12 ">
+                    <div class=" bottom-card d-flex flex-row justify-content-center">
+                        <div class="">
+                            <i class="far fa-copyright styling"></i>
+                        </div>
+                        <div>
+                            <p class="bot-p pl-2"> 2020 by Jenny Wilson. Created with bootstrap</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
+
+
+
+.bgg-con {
+    background-image: linear-gradient(to right #50b5d4, #00274a);
+}
+
+.nave-headingg {
+    height: 50px;
+    width: 50px;
+    border-width: 3px;
+    border-color: black;
+    border-style: solid;
+}
+
+.j-heading {
+    color: white;
+    background-color: transparent;
+    border-style: solid;
+    border-color: #4b6cc1;
+    padding-left: 13px;
+    height: 50px;
+    width: 50px;
+}
+
+.banner-section {
+    background-color: #1f2933;
+
+    background-size: cover;
+}
+
+
+.hh1 {
+    color: white;
+    font-size: 30px;
+}
+
+.span1 {
+    color: blue;
+}
+
+.pp {
+    color: #9aa5b1;
+}
+
+.bg-container {
+    background-color: #323f4b;
+
+    background-size: cover;
+}
+
+.hh2 {
+    color: #b9fc60;
+    font-size: 20px;
+}
+
+h2 {
+    color: white;
+}
+
+p {
+    color: #9aa5b1;
+    font-size: 14px;
+}
+
+.bottom-section {
+    background-color: #1f2933;
+    background-size: cover;
+}
+
+.icon-siz {
+    height: 60px;
+    width: 60px;
+}
+
+.p-card {
+    background-color: #323f4b;
+    border-radius: 10px;
+    height: 100px;
+    width: 100px;
+}
+
+.icon-head {
+    color: white;
+    font-weight: bold;
+}
+
+.bg1-container {
+    background-color: #3e4c59;
+
+    background-size: cover;
+}
+
+.hh11 {
+    color: #cced00;
+    font-size: 25px;
+}
+
+.por-heading {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.web-head {
+    color: white;
+    font-size: 15px;
+}
+
+.hotel-head {
+    color: white;
+    font-size: 20px;
+}
+
+.Royal-para {
+    color: #9aa5b1;
+    font-size: 16px;
+}
+
+.linkR {
+    color: #cced00;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.card-r {
+    border-radius: 15px;
+}
+
+.bg-st-container {
+    background-color: #52606d;
+}
+
+.st-card {
+    background-color: #323f4b;
+    border-radius: 10px;
+}
+
+.what-head {
+    font-size: 25px;
+    color: white;
+    font-weight: bold;
+}
+
+.logo-sizing {
+    height: 40px;
+    width: 40px;
+}
+
+.st-para {
+    font-size: 16px;
+    color: #9aa5b1;
+}
+
+.container-image {
+    background-image: url('https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/portfolio-work-done-bg.png');
+    height: 300px;
+    width: 100vw;
+    background-size: cover;
+}
+
+#icon-styling {
+    color: white;
+    height: 50px;
+    width: 50px;
+}
+
+.line-style {
+    border-top-color: white;
+}
+
+.hh2 {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+
+}
+
+.pp2 {
+    color: white;
+    font-size: 14px;
+}
+
+.testmonials-container {
+    background-color: #1f2933;
+    background-size: cover;
+}
+
+.tes-head {
+    color: #cced00;
+    font-size: 20px;
+}
+
+.our-members {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.image-sizingg {
+    border-radius: 40px;
+    height: 100px;
+    width: 100px;
+}
+
+.para-text {
+    color: white;
+}
+
+.para-text-1 {
+    color: white;
+}
+
+.section-card {
+    background-color: #323f4b;
+    padding: 15px;
+}
+
+.foot-container {
+    background-color: #001c32;
+    background-size: cover;
+}
+
+.img-styling {
+    border-radius: 40px;
+    height: 50px;
+    width: 50px;
+}
+
+.hh3 {
+    color: #cced00;
+    font-size: 20px;
+}
+
+.pp3 {
+    font-size: 14px;
+    color: #9aa5b1;
+}
+
+.styling {
+    font-size: 18px;
+    color: #5a7184;
+}
+
+
+
+.bot-p {
+    font-size: 13px;
+    color: white;
+}
+
+.linestyl {
+    border-color: white;
+}

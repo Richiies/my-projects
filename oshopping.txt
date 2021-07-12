@@ -1,0 +1,130 @@
+<body>
+    <div class="bg-section-conatiner d-flex flex-column justify-content-end ">
+        <div class="top-section d-flex flex-row justify-content-between">
+            <h1 class="Shop-heading"> Shop in your favorite stores</h1>
+            <img src="https://assets.ccbp.in/frontend/static-website/stores-img.png" class="img-sizing" />
+        </div>
+    
+    <div class="bottom-section-container">
+        <div class="bottom-card-section">
+            <h1 class="sub-heading">Select Your Store with one click</h1>
+        </div>
+        <div class="store-card d-flex flex-row">
+
+            <img src="https://assets.ccbp.in/frontend/static-website/amazon-logo-img.png" class="imge-sizing" />
+            <div class="store-h-card">
+                <h1 class="store-head">Amazon</h1>
+                <p class="para"> Oline Shopping free Shipping and cash on delivery</p>
+            </div>
+        </div>
+        <div class="store-card d-flex flex-row">
+
+            <img src="https://assets.ccbp.in/frontend/static-website/ikea-logo-img.png" class="imge-sizing" />
+            <div class="store-h-card">
+                <h1 class="store-head">Ikea</h1>
+                <p class="para"> Oline Shopping free Shipping and cash on delivery</p>
+            </div>
+        </div>
+        <div class="store-card d-flex flex-row">
+
+            <img src="https://assets.ccbp.in/frontend/static-website/bewakoof-logo-img.png" class="imge-sizing" />
+            <div class="store-h-card">
+                <h1 class="store-head">Bewakoof</h1>
+                <p class="para"> Oline Shopping free Shipping and cash on delivery</p>
+            </div>
+        </div>
+        <div class="store-card d-flex flex-row">
+
+            <img src="https://assets.ccbp.in/frontend/static-website/flipkart-logo-img.png" class="imge-sizing" />
+            <div class="store-h-card">
+                <h1 class="store-head">Flipkart</h1>
+                <p class="para"> Oline Shopping free Shipping and cash on delivery</p>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+
+
+</body>
+
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
+
+.bg-section-container {
+    background-color: #894bca;
+    background-size: cover;
+    height: 40vh;
+}
+
+.top-section {
+    background-color: #894bca;
+    
+    
+
+
+}
+
+
+
+.Shop-heading {
+    font-size: 25px;
+    font-family: Bree serif;
+    font-weight: bold;
+    height: 200px;
+    width: 150px;
+    color: white;
+    padding: 25px;
+}
+
+.img-sizing {
+    height: 150px;
+    width: 130px;
+}
+
+.bottom-section-container {
+    background-color: white;
+    height: 60vh;
+     border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+
+
+}
+
+.bottom-card-section {
+   
+    padding: 15px;
+    border-radius: 20px;
+
+
+
+}
+
+.sub-heading {
+    color: pink;
+    font-weight: bold;
+    font-size: 15px;
+
+}
+
+.imge-sizing {
+    height: 60px;
+    width: 60px;
+    margin: 10px;
+}
+
+.store-h-card {
+    margin: 10px;
+}
+
+.store-head {
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+
+}
+
+.para {
+    color: grey;
+    font-size: 13px;
+}

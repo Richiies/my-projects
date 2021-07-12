@@ -1,0 +1,599 @@
+The input will be a single line containing space-separated integers.
+Output
+
+The output should be a single line containing either "True" or list of unique elements sorted in ascending order.
+Explanation
+
+For example, if the given string is "45 45 45 45", as all the numbers are 45, the output should be "True".
+
+Whereas, if the given string is "45 20 45 45 20", as all the numbers are not same, your code should print the list of unique elements sorted in ascending order. 
+So the output should be
+
+def convert_string_to_int(list_a):
+    new_list = []
+    for item in list_a:
+        num = int(item)
+        new_list.append(num)
+    return new_list
+
+
+num_list = input().split()
+num_list = convert_string_to_int(num_list)
+
+num_sett = set(num_list)
+if len(num_sett) == 1:
+    print("True")
+else:
+    num_list = list(num_sett)
+    num_list.sort()
+    print(num_list)
+.......................................................................................................................
+
+Extract Numbers
+Write a program to remove the elements other than numbers in the list.
+Input
+
+The input will be a single line containing comma-separated strings.
+Output
+
+The output should be a single line containing the list of numbers.
+Explanation
+
+For example, if the given string is "1,2,3,#,4", as there is character # in the given string. Your code should remove such characters and print a list with only numbers. So the output should be
+[1, 2, 3, 4]
+
+
+
+def convert_list_to_digit(list_1):
+    new_list = []
+    for i in list_1:
+         is_digit = i.isdigit()
+         if is_digit:
+             num = int(i)
+             new_list.append(num)
+    print(new_list)
+
+
+num_list = input().split(",")
+convert_list_to_digit(num_list)
+............................................................................
+
+Missing Numbers
+Write a program to find the missing numbers from 1 to the maximum number in the list.
+Input
+
+The input will be a single line containing space-separated integers.
+Output
+
+The output should be a single line containing the list of missing numbers sorted in ascending order.
+Explanation
+
+For example, if the given string is "1 2 3 5 6 7", your code should print the list of missing numbers from 1 to 7. So the output should be
+[4]
+Sample Input 1
+Sample Output 1
+Sample Input 2
+
+
+
+
+def convert_to_int(n):
+    new_list = []
+    for i in n:
+        num = int(i)
+        new_list.append(num)
+    return new_list
+
+
+
+
+
+n = input().split()
+n = convert_to_int(n)
+maximum = max(n)
+num_set = set(n)
+first_n_set = set(range(1,maximum+1))
+missing_numbers = first_n_set.difference(num_set)
+missing_numbers = list(missing_numbers)
+missing_numbers.sort()
+print(missing_numbers)
+................................................................................
+For this problem, the prefilled code will contain a set. Write a program to check the following relations with the given set.
+   1. Superset
+   2. Subset
+   3. Disjoint Set
+Input
+
+The input will be a single line containing the space-separated integers.
+Output
+
+The output should be a single line containing either "Superset" or "Subset" or "Disjoint Set".
+Explanation
+
+For example, if the given string is "2 3 4", the output should be "Superset", as all the values in the given set are present in the original set.
+
+
+# Write your code here
+def converting_int(n):
+    new_list = []
+    for i in n:
+        num = int(i)
+        new_list.append(num)
+    return new_list
+
+num_set = {1, 2, 3, 4, 5, 6, 7, 8, 9}
+    
+n = input().split()
+n = converting_int(n)
+num_set2 = set(n)
+if num_set.issuperset(num_set2):
+    print("Superset")
+elif num_set.issubset(num_set2):
+    print("Subset")
+elif num_set.isdisjoint(num_set2):
+    print("Disjoint Set")
+
+....................................................................
+Common Elements in Three Sets
+Write a program to find the common elements in the three sets.
+Input
+
+The first line of input will contain space-separated integers.
+The second line of input will contain space-separated integers.
+The third line of input will contain space-separated integers.
+Output
+
+The output should be a single line containing the list of common elements in three sets sorted in ascending order.
+
+def convert_to_int(list_n):
+    new_list = []
+    for i in list_n:
+        num = int(i)
+        new_list.append(num)
+    return new_list
+
+
+
+
+first_list = input().split()
+second_list = input().split()
+third_list = input().split()
+
+first_list = convert_to_int(first_list)
+second_list = convert_to_int(second_list)
+third_list = convert_to_int(third_list)
+first_set = set(first_list)
+second_set = set(second_list)
+third_set = set(third_list)
+
+result = (first_set&second_set)&third_set
+final = list(result)
+print(final)
+    
+
+.....................................................................
+
+def convert_to_int(list_a):
+    new_list = []
+    for i in list_a:
+        num = int(i)
+        new_list.append(num)
+    return new_list
+   
+def get_intersection_of_sets(list_b):
+    result = list_b[0]
+    for i in list_b:
+        result = result&i
+    return result
+        
+
+
+n = int(input())
+num_set_list = []
+for i in range(n):
+    num_list = input().split()
+    num_list = convert_to_int(num_list)
+    num_set = set(num_list)
+    num_set_list.append(num_set)
+    
+result_set = get_intersection_of_sets(num_set_list)
+final = list(result_set)
+final.sort()
+print(final)
+    Common Elements in N Sets
+Write a program to find the common elements in the N sets.
+Input
+
+The first line of input will contain a positive integer (N).
+The next N lines will contain space-separated integers, denoting the elements of each set.
+Output
+
+The output should be a single line containing the list of common elements in N sets sorted in ascending order.
+Explanation
+
+For example, if the given N is 3, read inputs in the next three lines. If the given three strings are as the following.
+2 4 6 8 10
+4 8 10 12 16
+5 10 15 20
+
+.....................................................................................
+K Sum Pairs
+Write a program to find all the unique pairs whose sum is equal to K.
+Input
+
+The first line of input will contain comma-separated integers.
+The second line of input will contain an integer (K).
+Output
+
+The output should be M lines equal to the number of unique pairs sorted in ascending order.
+Each line should contain a unique pair as a tuple with the smallest number first.
+Explanation
+
+For example, if the given string is "5,3,7,9,5" and K is 12. Your code should print the unique pairs of numbers, whose sum is equal to K. In the above numbers
+3 + 9 = 12
+5 + 7 = 12
+as these are the unique pairs with sum equal to 12, print each pair as a tuple. So the output should be
+(3, 9)
+(5, 7)
+
+def get_unique_pairs(int_list,pair):
+    unique_pair_set = set()
+    for cur in range(len(int_list)-1):
+        num_1 = int_list[cur]
+        num_2 = pair - num_1
+        remain_list = int_list[cur+1:]
+        if num_2 in remain_list:
+            pair_t = (num_1,num_2)
+            sorted_pair = tuple(sorted(pair_t))
+            unique_pair_set.add(sorted_pair)
+    return unique_pair_set
+
+def convert_int(n):
+    new_list = []
+    for i in n:
+        num = int(i)
+        new_list.append(num)
+    return new_list
+
+
+
+
+n = input().split(",")
+pair = int(input())
+int_list = convert_int(n)
+unique_pairs = get_unique_pairs(int_list, pair)
+unique_pairs = list(unique_pairs)
+unique_pairs.sort()
+for i in unique_pairs:
+    print(i)
+
+.........................................................................
+
+def convert_int(n):
+    new_l = []
+    for i in n:
+        num = int(i)
+        new_l.append(num)
+    return(new_l)
+
+
+
+
+
+n = input().split(",")
+rotate_times = int(input())
+int_list = convert_int(n)
+length_of_list = len(int_list)
+val = rotate_times % length_of_list 
+
+first_part = int_list[0:val]
+second_part = int_list[val:]
+second_part.extend(first_part)
+print(second_part)
+
+
+Rotate D Times
+Write a program to print the list by rotating D times to the left.
+Input
+
+The first line of input will contain comma-separated integers.
+The second line of input will contain a positive integer (D).
+Output
+
+The output should be a single line containing a list by rotating the list D times to the left.
+Explanation
+
+For example, if the given string is "1,2,3,4,5" and D is 2. Rotate the two elements of the list to the left. So the output should be
+[3, 4, 5, 1, 2]
+
+...............................................................................
+
+
+def convert_to_int(list_n):
+    new_list =[]
+    for i in list_n:
+        num = int(i)
+        new_list.append(num)
+    return(new_list)
+
+
+
+
+
+
+
+n = int(input())
+num_list = []
+for i in range(n):
+    list_n = input().split()
+    int_list = convert_to_int(list_n)
+    num_list.append(int_list)
+print(num_list)
+
+Nested List
+Write a program to read N lines of inputs and create a nested list with each line as a list.
+Input
+
+The first line of input will contain a positive integer N.
+The next N lines will contain space-separated integers.
+Output
+
+The output should be a single line containing the nested list.
+Explanation
+
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+def convert_int(list_a):
+    new_list = []
+    for i in list_a:
+        num = int(i)
+        new_list.append(num)
+    return max(new_list)    
+
+
+
+
+
+
+n = int(input())
+num_list = []
+for i in range(n):
+    list_a = input().split()
+    int_list = convert_int(list_a)
+    num_list.append(int_list)
+print(num_list)
+
+List of Maximum Values
+Write a program to create a list with maximum values in each list.
+Input
+
+The first line of input will contain a positive integer N.
+The next N lines will contain space-separated integers.
+Output
+
+The output should be a single line containing the list of maximum values in each list.
+Explanation
+
+For example, if the given N is 3, read the inputs in the next three lines.
+If the given three strings are as the following.
+1 2 3 4
+10 20 30
+5 10 15 20
+
+...................................................................
+
+def convert_nested_list_to_list_of_tuples(nested_list):
+    # Complete this function
+    tuples_list = []
+    for each in nested_list:
+        tupple = tuple(each)
+        tuples_list.append(tupple)
+    return tuples_list
+
+def convert_string_to_int(list_a):
+    new_list = []
+    for item in list_a:
+        num = int(item)
+        new_list.append(num)
+    return new_list
+
+
+n = int(input())
+num_list = []
+
+for i in range(n):
+    list_a = input().split()
+    list_a = convert_string_to_int(list_a)
+    num_list.append(list_a)
+
+
+tuples_list = convert_nested_list_to_list_of_tuples(num_list)
+print(tuples_list)
+.....................................................................................
+num_list = [(2, 4, 6, 8), (5, 15, 25, 35), (7, 14, 21)]
+# Write your code here
+n = int(input())
+for tuple1 in num_list:
+    is_contain = n in tuple1
+    if is_contain:
+        tuple_index = num_list.index(tuple1)
+        n_index = tuple1.index(n)
+        print(str(tuple_index)+" "+str(n_index))
+        break
+
+
+Nested List Indexing
+For this problem, the prefilled code will contain a list of tuples. Write a program to print the index of the given number N in the list of tuples.
+Input
+
+The input will be a single line containing an integer (N).
+Output
+
+The output should be a single line containing two numbers separated by space.
+The first number should be the index of tuples that contain the number N.
+The second number should be the index of the number N in the tuple.
+
+.............................................................................
+
+Accessing Nested Lists
+For this problem, the prefilled code will contain a list of tuples. Write a program to create a list with the values at the given indexes.
+Input
+
+The first line of input will contain a positive integer (N).
+The next N lines will contain two space-separated integers.
+The first number will be the index of the tuple.
+The second number will be the index of the value in the tuple.
+Output
+
+The output should be a single line containing the list of values in the order of inputs given.
+
+list_a = [('apple', 'banana', 'orange', 'grapes'), ('cricket', 'football', 'hockey'), ('car', 'bicycle', 'bus')]
+# Write your code here
+n = int(input())
+new_list = []
+for i in range(n):
+    index = input().split()
+    tuple_index = int(index[0])
+    value_index = int(index[1])
+    value = list_a[tuple_index][value_index]
+    new_list.append(value)
+print(new_list)
+
+..........................................................
+num_list = [(1, 2, 3, 4, 5, 6), (2, 4, 6, 8), (1, 3, 5, 7)]
+# Write your code here
+n = int(input())
+new_list = []
+for tuplea in num_list:
+    new_tuple = tuplea
+    if n in tuplea:
+        n_index = tuplea.index(n)
+        new_tuple = tuplea[:n_index] + tuplea[n_index+1:]
+    new_list.append(new_tuple)
+print(new_list)
+
+Remove N in All Tuples
+For this problem, the prefilled code will contain a list of tuples. Write a program to remove the given number N in all the tuples if it present.
+Input
+
+The input will be a single line containing an integer (N).
+Output
+
+The output should be a single line containing the list of tuples without the N.
+Explanation
+
+For example, if the given N is 3, as 3 is in tuples at index 0 and 2, remove 3 in those tuples and print the list. So the output should be
+[(1, 2, 4, 5, 6), (2, 4, 6, 8), (1, 5, 7)]
+Sample Input 1
+
+.........................................................................
+Max and Min Value in List of Tuples
+Write a program to print the maximum and minimum of all the values at index zero and index one in the list of tuples.
+Input
+
+The first line of input will contain a positive integer (N).
+The next N lines will contain space-separated two integers, denoting elements of each tuple.
+Output
+
+The first line of output should contain a tuple with the maximum and minimum value at index zero.
+The second line of output should contain a tuple with the maximum and minimum value at index one.
+Explanation
+
+For example, if the given N is 3, read the inputs in the next three lines. If the inputs in the next three lines are the following.
+1 5
+3 2
+5 8
+
+
+n = int(input())
+num_list = []
+first_index = []
+second_index = []
+for i in range(n):
+    mm = input().split()
+    index_1 = int(mm[0])
+    first_index.append(index_1)
+    index_2 = int(mm[1])
+    second_index.append(index_2)
+mami_1 = (max(first_index) ,min(first_index))
+mami_2 = (max(second_index),min(second_index))
+print(mami_1)
+print(mami_2)
+    .........................................................................
+
+def convert_int(list_n):
+    newlist = []
+    for i in list_n:
+        num = int(i)
+        newlist.append(num)
+    return newlist
+
+
+
+
+n = int(input())
+num_list = []
+for i in range(n):
+    list_n = input().split()
+    list_n = convert_int(list_n)
+    set_of_list = set(list_n)
+    length_of_list = len(list_n)
+    length_of_set = len(set_of_list)
+    if length_of_list == length_of_set:
+        num_list.append(list_n)
+print(num_list)
+
+List of Unique Tuples
+Write a program to print the lists which contain the unique elements in the given list of lists.
+Input
+
+The first line of input will contain a positive integer (N).
+The next N lines will contain space-separated integers, denoting elements of each list.
+Output
+
+The output should be a single line containing the list of lists with unique elements in the order of inputs given.
+Explanation
+
+For example, if the given N is 3, read the inputs in the next three lines. If the inputs in the next three lines are the following.
+1 2 3
+5 10 15
+10 20 10 30
+.........................................................................
+Character Frequency
+Write a program to compute the frequency of characters other than space.
+Input
+
+The input will be a single line containing a string.
+Note: 
+  1. The input string will contain only alphabets and white space.
+  2. Ignore the case-sensitivity.
+Output
+
+The output should be M lines equal to unique characters in the given string sorted in alphabetical order.
+Each line should contain the character and its frequency separated by a colon (:). 
+Explanation
+
+For example, if the given string is "Pop up", all the unique characters in the given string are (p, o, u). The characters (p, o, u) are with frequency (3, 1, 1) respectively. Your code should print each unique character and its frequency separated by a colon(:) in alphabetical order. So the output should be
+o: 1
+p: 3
+u: 1
+Sample Input 1
+
+def print_char_count(n):
+    uniquechars = set(n)
+    uniquechars.discard(" ")
+    for i in sorted(uniquechars):
+        msg = ("{}: {}")
+        print(msg.format(i,n.count(i)))
+        
+    
+
+
+
+n = input().lower()
+print_char_count(n)
+    
+....................................................................
+
+

@@ -1,0 +1,140 @@
+n = int(input())
+array = []
+for i in range(n):
+    array.append([int(i) for i in input().split()])
+b = []
+for i in range(n):
+    maxValue = 0
+    maxIndex = 0
+    for j in range(array[i][0], array[i][1]+1):
+        sum = 1
+        temp = j
+        while True:
+            sum = sum*(temp%10)
+            temp = temp//10
+            if temp == 0:
+                if sum > maxValue:
+                    maxValue = sum
+                    maxIndex=j
+                break
+    b.append(maxIndex)
+for i in range(len(b)):
+    print(b[i])
+
+
+
+
+m,n=map(int,input().split())
+mat=[]
+for i in range(m):
+    mat.append([int(x) for x in input().split()])
+k=int(input())
+temp=[]
+start_row=0
+start_col=0
+end_row=m-1
+end_col=n-1
+while(start_row<=end_row and start_col<=end_col):
+    sr=start_row
+    er=end_row
+    sc=start_col
+    ec=end_col
+    for i in range(start_col,end_col+1):
+        temp.append(mat[start_row][i])
+    start_row+=1
+    for i in range(start_row,end_row+1):
+        temp.append(mat[i][end_col])
+    end_col-=1
+    if start_row<=end_row:
+        for i in range(end_col,start_col-1,-1):
+            temp.append(mat[end_row][i])
+        end_row-=1
+    if start_col<=end_col:
+        for i in range(end_row,start_row-1,-1):
+            temp.append(mat[i][start_col])
+        start_col+=1
+    #print(temp)
+    if len(temp)>=k:
+        for i in range(k):
+            x=temp.pop()
+            temp.insert(0,x)
+        ind=0
+        for i in range(sc,ec+1):
+            mat[sr][i]=temp[ind]
+            ind+=1
+        sr+=1
+        for i in range(sr,er+1):
+            mat[i][ec]=temp[ind]
+            ind+=1
+        ec-=1
+        if sr<=er:
+            for i in range(ec,sc-1,-1):
+                mat[er][i]=temp[ind]
+                ind+=1
+            er-=1
+        if sc<=ec:
+            for i in range(er,sr-1,-1):
+                mat[i][sc]=temp[ind]
+                ind+=1
+            sc+=1
+    temp=[]
+for i in mat:
+    print(*i,sep=' ')
+
+
+
+
+
+string = input()
+words = string.split()
+result = []
+adjacent = []
+for i in range(len(words)-1):
+    adjacent.append(sorted([words[i],words[i+1]]))
+for i in range(len(words)):
+    for j in range(i+2,len(words)):
+        word = sorted([words[i],words[j]])
+        if word not in result and word not in adjacent:
+            result.append(word)
+if result:
+    for i in sorted(result):
+        print(" ".join(i))
+else:
+    print("No Combinations")
+
+
+
+
+
+
+
+
+
+def findtriplets(integers, sum1):
+    triplets = []
+    for i in range(0, len(integers)-2):
+        for j in range(i+1, len(integers)-1):
+            for k in range(j+1, len(integers)):
+                integers[i]
+                integers[j]
+                integers[k]
+                if (integers[i]+integers[j]+integers[k] == sum1):
+                    triplets.append(tuple((integers[i],integers[j],integers[k])))
+    if len(triplets)!= 0:
+        for i in triplets:
+            print(i)
+    else:
+        print("No Matching Triplets Found")
+
+
+                
+integers = input().split()
+integers = list(dict.fromkeys(integers))
+newlist =[]
+for i in integers:
+    a = int(i)
+    newlist.append(a)
+
+sum1 = int(input())
+numlist = sorted(newlist)
+findtriplets(numlist, sum1)

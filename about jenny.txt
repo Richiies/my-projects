@@ -1,0 +1,103 @@
+<body>
+    <div class="bgab-container pt-5 pb-5 pl-3 pr-3">
+        <div class="container ">
+            <div class="row mb-3">
+                <div class="col-12  col-md-6 order-md-2 d-flex flex-column justify-content-center">
+                    <h1>Facts</h1>
+                    <h2> About Me</h2>
+                    <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/portfolio-about-me-img.png" class="w-100 d-md-none mb-3" />
+                    <p class="mt-2 mb-3">My name is jenny Wilson, and i am currently looking for a job in frontend development. i have 3 years of experience working as a
+                        front-developer. i have bachelor's deegree in lectronics and communication. people find me to be an Upbeat, self-motivated team player with excellent communication skills.</p>
+                    <p class="mt-2 mb-3">I am a dedicated person with a family of four. I enjoy reading, nd the knowledge and perspective that me reaading gives me have strengthened my teaching skills and presentation abilities</p>
+                </div>
+                <div class="col-12 col-md-6 order-md-1 d-md-block d-none">
+                    <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/portfolio-about-me-img.png" class="w-100" />
+                </div>
+
+
+            </div>
+
+            <div class="bottom-section pt-5 pb-5 pl-3 pr-3">
+                <div class="shadow">
+                    <div class="row">
+                        <div class="col-12">
+                            <h1>Skills :</h1>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="p-card pr-3 pl-3 pt-1 ml-3 mr-3 mb-2 text-center">
+                                <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/portfolio-skills-html-img.png" class="icon-siz" />
+                                <p class="icon-head">HTML</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="p-card pr-3 pl-3 pt-1 ml-3 mr-3 mb-2 text-center">
+                                <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/portfolio-skills-css-img.png" class="icon-siz" />
+                                <p class="icon-head">CSS</p>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-3">
+                            <div class="p-card  pr-3 pl-3 pt-1 ml-3 mr-3 mb-2 text-center">
+                                <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/portfolio-skills-bootstrap-img.png" class="icon-siz" />
+                                <p class="icon-head">Bootstrap</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="p-card pr-3 pl-3 pt-1 ml-3 mr-3 mb-2 text-center">
+                                <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/portfolio-skills-js-img.png" class="icon-siz" />
+                                <p class="icon-head">JS</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+</body>
+
+.bgab-container {
+    background-color: #323f4b;
+
+    background-size: cover;
+}
+
+h1 {
+    color: #b9fc60;
+    font-size: 20px;
+}
+
+h2 {
+    color: white;
+}
+
+p {
+    color: #9aa5b1;
+    font-size: 14px;
+}
+
+.bottom-section {
+    background-color: #1f2933;
+    background-size: cover;
+}
+
+.icon-siz {
+    height: 60px;
+    width: 60px;
+}
+
+.p-card {
+    background-color: #323f4b;
+    border-radius: 10px;
+    height: 100px;
+    width: 100px;
+}
+
+.icon-head {
+    color: white;
+    font-weight: bold;
+}

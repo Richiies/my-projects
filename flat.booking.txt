@@ -1,0 +1,262 @@
+<body>
+    <div id="sectionflatshome">
+        <div class="flat-info-container d-flex flex-column justify-content-end">
+            <div class="homeflat-card ">
+                <h1 class="sunrise-heading">Sunrise Avenue</h1>
+                <p class="para-p">Moves what makes you move</p>
+                <button class="btn btn-warning" onclick="display('sectionflatlist')">Book Flat</button>
+            </div>
+        </div>
+    </div>
+    <div id="sectionflatlist">
+        <div class="flat-lists-container">
+            <h1 class="sunrise-heading">Sunrise Avenue</h1>
+
+
+            <div class="store-card d-flex flex-row" onclick="display('sectionflatone')">
+
+                <img src="https://assets.ccbp.in/frontend/static-website/flats-list-card1-img.png" class="imge-sizing" />
+                <div class="store-h-card">
+                    <h1 class="store-head">3BHK Flat</h1>
+                    <p class="para">This is a fully furnished flat width <br />
+                        built in windows lights and A.C
+                    </p>
+                </div>
+            </div>
+            <div class="store-card d-flex flex-row" onclick="display('sectionflattwo')">
+
+                <img src="https://assets.ccbp.in/frontend/static-website/flats-list-card3-img.png" class="imge-sizing" />
+                <div class="store-h-card">
+                    <h1 class="store-head">4BHK Flat</h1>
+                    <p class="para">This is a fully furnished flat width <br />
+                        built in windows lights and A.C
+                    </p>
+                </div>
+            </div>
+            <div class="store-card d-flex flex-row" onclick="display('sectionflatthree')">
+
+                <img src="https://assets.ccbp.in/frontend/static-website/flats-list-card2-img.png" class="imge-sizing" />
+                <div class="store-h-card">
+                    <h1 class="store-head">2BHK Flat</h1>
+                    <p class="para">This is a fully furnished flat width <br />
+                        built in windows lights and A.C
+                    </p>
+                </div>
+            </div>
+            <button class="btn btn-warning" onclick="display('sectionflatshome')">Back</button>
+        </div>
+    </div>
+    <div id="sectionflatone">
+        <div class="phone-bg-container">
+            <img src="https://assets.ccbp.in/frontend/static-website/flats-list-d1-img.png" class="p-image-size" />
+            <div class="phonespec-card">
+
+                <h1 class="spec-heading">
+                    Rs 10000/-
+                    <hr />
+                </h1>
+                <div class="d-flex flex-row">
+                    <img src="https://assets.ccbp.in/frontend/static-website/flats-list-location-icon-img.png" class="l-img" />
+                    <p class="spec-description">D/w 5-2 Road street, Indore</p>
+                </div>
+                <hr class="line-style" />
+                <h1 class="spec-heading">Description</h1>
+                <ul class="spec-description">
+                    <li> Wide rooms</li>
+                    <li>Pool benifits</li>
+                    <li> luxury gauranteed</li>
+
+                </ul>
+                <button class="btn-warning">Confirm</button>
+                <button class=" btn-primary " onclick="display('sectionflatlist')">Back</button>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div id="sectionflattwo">
+        <div class="phone-bg-container">
+            <img src="https://assets.ccbp.in/frontend/static-website/flats-list-d2-img.png" class="p-image-size" />
+            <div class="phonespec-card">
+
+                <h1 class="spec-heading">
+                    Rs 20000/-
+                    <hr />
+                </h1>
+                <div class="d-flex flex-row">
+                    <img src="https://assets.ccbp.in/frontend/static-website/flats-list-location-icon-img.png" class="l-img" />
+                    <p class="spec-description">Dd/w 5-2 Road street, Indore</p>
+                </div>
+                <hr class="line-style" />
+                <h1 class="spec-heading">Description</h1>
+                <ul class="spec-description">
+                    <li> Wide rooms</li>
+                    <li>Pool benifits</li>
+                    <li> luxury gauranteed</li>
+
+                </ul>
+                <button class="btn-warning">Confirm</button>
+
+                <button class=" btn-primary " onclick="display('sectionflatlist')">Back</button>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div id="sectionflatthree">
+        <div class="phone-bg-container">
+            <img src="https://assets.ccbp.in/frontend/static-website/flats-list-d3-img.png" class="p-image-size" />
+            <div class="phonespec-card">
+
+                <h1 class="spec-heading">
+                    Rs 20000/-
+                    <hr />
+                </h1>
+                <div class="d-flex flex-row">
+                    <img src="https://assets.ccbp.in/frontend/static-website/flats-list-location-icon-img.png" class="l-img" />
+                    <p class="spec-description">Dd/w 5-2 Road street, Indore</p>
+                </div>
+                <hr class="line-style" />
+                <h1 class="spec-heading">Description</h1>
+                <ul class="spec-description">
+                    <li> Wide rooms</li>
+                    <li>Pool benifits</li>
+                    <li> luxury gauranteed</li>
+
+                </ul>
+                <button class="btn-warning">Confirm</button>
+
+                <button class=" btn-primary " onclick="display('sectionflatlist')">Back</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script type="text/javascript" src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/js/ccbp-ui-kit.js"></script>
+</body>
+
+
+
+
+.flat-info-container {
+    background-image: url('https://assets.ccbp.in/frontend/static-website/flats-list-bg.png');
+    background-size: cover;
+    height: 100vh;
+
+
+}
+
+.homeflat-card {
+    background-color: white;
+    height: 200px;
+    width: 320px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    text-align: center;
+    padding: 20px;
+}
+
+.sunrise-heading {
+    font-family: bree Serif;
+    font-size: 25px;
+    color: orange;
+    font-weight: bold;
+
+}
+
+.para-p {
+    color: grey;
+    font-weight: 500;
+}
+
+.flat-lists-container {
+    background-color: black;
+    height: 130vh;
+    background-size: cover;
+    padding: 10px;
+}
+
+.store-card {
+    border-radius: 10px;
+    background-color: white;
+    margin: 10px;
+
+}
+
+.store-h-card {
+    margin: 10px;
+
+
+}
+
+.para {
+    color: #0f0e46;
+    font-size: 13px;
+}
+
+.store-head {
+    color: #0f0e46;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.imge-sizing {
+    height: 140px;
+    width: 80px;
+    margin: 0px;
+    border-radius: 10px;
+}
+
+.phone-bg-container {
+    border-width: 5px;
+    height: 100vh;
+    background-size: cover;
+    border-color: #707070;
+    border-style: solid;
+}
+
+.p-image-size {
+    height: 200px;
+    width: 300px;
+    padding: 0px;
+}
+
+.phonespec-card {
+    background-color: black;
+    padding: 10px;
+}
+
+.spec-heading {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Roboto;
+    color: orange;
+}
+
+.spec-description {
+    color: white;
+    font-size: 16px;
+    font-family: Roboto;
+}
+
+.buybtn {
+    margin-right: 100px;
+    margin-left: 100px;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 15px;
+}
+
+.line-style {
+    border-top: 1px solid white;
+}
+
+.l-img {
+    height: 40px;
+    width: 40px;
+}

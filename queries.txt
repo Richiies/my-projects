@@ -1,0 +1,345 @@
+1
+SELECT
+  channel.channel_id,
+  channel.name AS channel_name,
+  count() AS no_of_subscribers
+FROM
+  channel
+  INNER JOIN channel_user ON channel.channel_id = channel_user.channel_id
+WHERE
+  cast(
+    strftime("%Y", channel_user.subscribed_datetime) AS integer
+  ) = 2018
+GROUP BY
+  channel.name
+ORDER BY
+  no_of_subscribers DESC
+LIMIT
+  10
+
+
+
+
+
+
+2
+
+SELECT
+  count(DISTINCT user_likes.user_id) AS no_of_users_reached
+FROM
+  video
+  INNER JOIN user_likes ON video.video_id = user_likes.video_id
+WHERE
+  video.channel_id = 352
+  AND user_likes.reaction_type = "LIKE";
+
+
+
+3
+
+
+
+SELECT
+  channel.channel_id,
+  channel.name AS channel_name,
+  count(channel_user.user_id) AS no_of_subscribers
+FROM
+  channel
+  LEFT JOIN channel_user ON channel.channel_id = channel_user.channel_id
+GROUP BY
+  channel.channel_id
+ORDER BY
+  no_of_subscribers DESC,
+  channel_name ASC
+
+
+
+4
+
+
+
+SELECT
+  count() AS no_of_videos
+FROM
+  video
+  INNER JOIN channel ON channel.channel_id = video.channel_id
+WHERE
+  channel.name LIKE "%News for you%"
+  AND cast(strftime("%Y", published_datetime) AS integer) = 2018
+
+
+
+5
+
+
+SELECT
+  DISTINCT cast(
+    strftime("%m", channel_user.subscribed_datetime) AS integer
+  ) AS month_in_2018,
+  count() AS subscribers_per_month
+FROM
+  channel_user
+WHERE
+  cast(
+    strftime("%Y", channel_user.subscribed_datetime) AS integer
+  ) = 2018
+  AND channel_id = 399
+GROUP BY
+  month_in_2018
+
+
+6
+
+
+SELECT
+  channel.name AS channel_name,
+  count(
+    CASE
+      WHEN video.video_id > 1 THEN 1
+      ELSE NULL
+    END
+  ) no_of_videos
+FROM
+  channel
+  LEFT JOIN video ON video.channel_id = channel.channel_id
+GROUP BY
+  channel_name
+ORDER BY
+  channel_name ASC
+
+
+7
+
+
+SELECT
+  channel.channel_id,
+  channel.name AS channel_name,
+  count(video.video_id) AS no_of_videos
+FROM
+  channel
+  INNER JOIN video ON video.channel_id = channel.channel_id
+WHERE
+  cast(
+    strftime("%Y", video.published_datetime) AS integer
+  ) = 2018
+GROUP BY
+  channel.channel_id
+HAVING
+  no_of_videos >= 5
+
+
+8
+
+SELECT
+  user_id,
+  count(user_likes.user_id) AS no_of_reactions
+FROM
+  user_likes
+  INNER JOIN video ON user_likes.video_id = video.video_id
+WHERE
+  video.channel_id = 366
+  AND user_likes.reaction_type IN ("LIKE", "DISLIKE")
+GROUP BY
+  user_likes.user_id
+HAVING
+  no_of_reactions >= 1
+ORDER BY
+  no_of_reactions DESC,
+  user_likes.user_id ASC
+
+9
+
+SELECT
+  name,
+  no_of_views
+FROM
+  video
+WHERE
+  no_of_views > (
+    SELECT
+      AVG(no_of_views)
+    FROM
+      video
+  )
+ORDER BY
+  name ASC
+
+
+
+11
+
+SELECT
+  DISTINCT video.name AS video_name,
+  video.no_of_views
+FROM
+  video
+  INNER JOIN video_genre ON video.video_id = video_genre.video_id
+WHERE
+  video.video_id IN (
+    SELECT
+      video_id
+    FROM
+      video_genre
+    WHERE
+      video_genre.genre_id = '201'
+  )
+  AND video.video_id IN(
+    SELECT
+      video_id
+    FROM
+      video_genre
+    WHERE
+      video_genre.genre_id = '202'
+  )
+ORDER BY
+  no_of_views DESC,
+  video_name ASC
+LIMIT
+  5 OFFSET 0
+
+
+
+12
+
+SELECT
+  video.name AS video_name,
+  no_of_views
+FROM
+  video
+  INNER JOIN video_genre ON video_genre.video_id = video.video_id
+WHERE
+  video.video_id IN (
+    SELECT
+      video_id
+    FROM
+      video_genre
+    WHERE
+      genre_id = 207
+  )
+ORDER BY
+  no_of_views DESC,
+  video_name ASC
+LIMIT
+  5
+
+
+13
+
+
+SELECT
+  cast(strftime("%H", reacted_at) AS integer) AS hour_of_engagement,
+  count() AS no_of_likes
+FROM
+  user_likes
+  INNER JOIN video_genre ON video_genre.video_id = user_likes.video_id
+WHERE
+  user_likes.reaction_type = "LIKE"
+  AND video_genre.genre_id = 202
+GROUP BY
+  hour_of_engagement
+ORDER BY
+  no_of_likes DESC
+LIMIT
+  1
+
+
+
+14
+
+
+
+SELECT
+  user_id AS active_user_id,
+  count() AS no_of_likes
+FROM
+  user_likes
+WHERE
+  reaction_type = "LIKE"
+GROUP BY
+  active_user_id
+HAVING
+  no_of_likes >= 50
+ORDER BY
+  active_user_id ASC
+
+
+
+15
+
+SELECT
+  user_id AS active_user_id,
+  count(user_likes.video_id) AS no_of_likes
+FROM
+  user_likes
+  INNER JOIN video ON video.video_id = user_likes.video_id
+WHERE
+  video.channel_id = 353
+  AND user_likes.reaction_type = "LIKE"
+GROUP BY
+  active_user_id
+HAVING
+  no_of_likes >= 5
+ORDER BY
+  no_of_likes DESC,
+  active_user_id ASC
+
+
+16
+
+SELECT
+  user_id AS potential_user_id,
+  count(user_likes.video_id) AS no_of_likes
+FROM
+  user_likes
+  LEFT JOIN video ON user_likes.video_id = video.video_id
+WHERE
+  video.channel_id = 352
+  AND user_likes.reaction_type = "LIKE"
+GROUP BY
+  potential_user_id
+HAVING
+  no_of_likes >= 2
+ORDER BY
+  no_of_likes DESC,
+  potential_user_id ASC
+
+17
+
+SELECT
+  genre.genre_id,
+  genre.genre_type,
+  count() AS no_of_likes
+FROM
+  genre
+  INNER JOIN video_genre ON genre.genre_id = video_genre.genre_id
+  INNER JOIN user_likes ON user_likes.video_id = video_genre.video_id
+WHERE
+  user_likes.reaction_type = "LIKE"
+GROUP BY
+  genre.genre_id
+ORDER BY
+  no_of_likes DESC,
+  genre.genre_type ASC
+LIMIT
+  5
+
+18
+
+SELECT
+  genre_id,
+  count() AS no_of_likes
+FROM
+  video_genre
+  INNER JOIN user_likes ON user_likes.video_id = video_genre.video_id
+  INNER JOIN user ON user_likes.user_id = user.user_id
+WHERE
+  user.country LIKE "INDIA"
+  AND cast(strftime("%Y", user_likes.reacted_at) AS integer) = 2018
+  AND user_likes.reaction_type LIKE "LIKE"
+GROUP BY
+  genre_id
+ORDER BY
+  no_of_likes DESC,
+  genre_id ASC
+LIMIT
+  3

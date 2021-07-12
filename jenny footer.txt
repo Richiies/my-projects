@@ -1,0 +1,89 @@
+<body>
+    <div class="foot-container pt-3 pb-3 pr-2 pl-2">
+        <div class="container ">
+            <div class="row">
+                <div class="col-12 col-md-3 p-1">
+                    <div class="d-flex flex-row pt-3 ">
+                        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/portfolio-about-me-img.png" class="img-styling" />
+                        <div class="ml-3">
+                            <h1> Jenny</h1>
+                            <p> Frontend Developer</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 pt-3">
+                    <h1>Phone No.</h1>
+                    <div class="d-flex flex-row ">
+                        <i class="fas fa-phone-alt styling"></i>
+                        <p class="pl-3">9876543210</p>
+                    </div>
+
+                </div>
+                <div class="col-12 col-md-3 pt-3">
+                    <h1>E-mail</h1>
+                    <div class="d-flex flex-row ">
+                        <i class="fas fa-envelope styling"></i>
+                        <p class="pl-3">jenny3@gmail.com</p>
+                    </div>
+
+                </div>
+                <div class="col-12 col-md-3 pt-3">
+                    <h1>Address</h1>
+                    <div class="d-flex flex-row ">
+                        <i class="fas fa-map-marked-alt styling"></i>
+                        <p class="pl-3">17 ayur Vigyan Nagar, New Delhi, India</p>
+                    </div>
+
+                </div>
+                <div class="col-12 ">
+                    <div class=" bottom-card d-flex flex-row justify-content-center">
+                        <div class="">
+                            <i class="far fa-copyright styling"></i>
+                        </div>
+                        <div>
+                            <p class="bot-p"> 2020 by Jenny Wilson. Created with bootstrap</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+</body>
+ 
+.foot-container {
+    background-color: #001c32;
+    background-size: cover;
+}
+
+.img-styling {
+    border-radius: 40px;
+    height: 50px;
+    width: 50px;
+}
+
+h1 {
+    color: #cced00;
+    font-size: 20px;
+}
+
+p {
+    font-size: 14px;
+    color: #9aa5b1;
+}
+
+.styling {
+    font-size: 18px;
+    color: #5a7184;
+}
+
+
+
+.bot-p {
+    font-size: 13px;
+}

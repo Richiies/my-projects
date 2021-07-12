@@ -1,0 +1,59 @@
+<body>
+    <div class="bg-st-container pt-5 pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 style="color:#cced00; font-size: 15px;">Services</h1>
+                    <h1 class="what-head"> What I do</h1>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="shadow st-card p-3 mb-3">
+                        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/portfolio-web-design-img.png" class="logo-sizing">
+                        <h1 class="what-head"> Static Websites</h1>
+                        <p class="st-para"> A Static Websites contains Web pages with fixed content. Each pae is deeveloped using HTML and CSS and display the same information to every vistor</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="shadow st-card p-3 mb-3">
+                        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/portfolio-web-development-img.png" class="logo-sizing">
+                        <h1 class="what-head"> Responsive Web design</h1>
+                        <p class="st-para"> Responsive Web design is the aporach that suggests that design andd development should respond tothe user's behaviour and environment based on screen size, platform and oreintation.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class=" shadow st-card p-3 mb-3">
+                        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/portfolio-customize-img.png" class="logo-sizing" />
+                        <h1 class="what-head"> Customisable Layouts</h1>
+                        <p class="st-para"> Customisable Layouts is the aporach that suggests that design andd development should respond tothe user's behaviour and environment based on screen size, platform and oreintation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+.bg-st-container {
+    background-color: #52606d;
+}
+
+.st-card {
+    background-color: #323f4b;
+    border-radius: 10px;
+}
+
+.what-head {
+    font-size: 25px;
+    color: white;
+    font-weight: bold;
+}
+
+.logo-sizing {
+    height: 40px;
+    width: 40px;
+}
+
+.st-para {
+    font-size: 16px;
+    color: #9aa5b1;
+}

@@ -1,0 +1,115 @@
+<div class="bg-container pt-5">
+        <div class="container   ">
+            <div class="row">
+                <div class="col-12 col-md-4 text-md-center ">
+                    <div class="  text-center text-md-left">
+                        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/vr-logo-img.png" class="img-sizzing" />
+                    </div>
+                    <div class="  d-flex flex-row justify-content-center ">
+                        <div class="follow-us-icon-container">
+                            <i class="fab fa-google icon"></i>
+                        </div>
+                        <div class="follow-us-icon-container">
+                            <i class="fab fa-twitter icon"></i>
+                        </div>
+                        <div class="follow-us-icon-container">
+                            <i class="fab fa-instagram icon"></i>
+                        </div>
+                        <div class="follow-us-icon-container">
+                            <i class="fab fa-linkedin  icon"></i>
+                        </div>
+                    </div>
+                    <div class="  text-center">
+                        <p>37, Ayur Vigyan Nagar, New delhi, india</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-8  d-flex flex-row  ">
+                    <div class=" container m-1 ">
+                        <h1>Contact Us</h1>
+                        <div class="  d-flex flex-row ">
+                            <i class="fas fa-envelope icon mr-2"></i>
+                            <p>vr@gmail.com</p>
+                        </div>
+                        <div class="  d-flex flex-row ">
+                            <i class="fas fa-phone-alt icon mr-2"></i>
+                            <p>123456845216</p>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <i class="fab fa-skype icon mr-2"></i>
+                            <p>Helen</p>
+                        </div>
+                    </div>
+                    <div class=" container ">
+                        <h1>Let Us help You</h1>
+                        <p>100% Purchase Protection <br />
+                            Your Account <br />
+                            Return center <br />
+                            Help</p>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <hr class="line-style" />
+                </div>
+                <div class="col-12">
+                    <div class="d-flex flex-row justify-content-center ">
+                        <i class="far fa-copyright icon2 "></i>
+                        <p>2020 by helen Created with bootstrap.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+.bg-container {
+    background-color: #19232d;
+    height: 100vh;
+    background-size: cover;
+
+}
+
+.img-sizzing {
+    height: 40px;
+    width: 64px;
+}
+
+.icon {
+    color: #5a7184;
+    font-size: 22px;
+
+}
+
+.follow-us-icon-container {
+    background-color: #28323d;
+    width: 50px;
+    height: 50px;
+    border-radius: 40px;
+    margin: 8px;
+    padding-right: 20px;
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+p {
+    color: #5a7184;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+h1 {
+    color: #5a7184;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.line-style {
+    border-top: solid #28323d;
+}
+
+.icon2 {
+    color: #5a7184;
+    font-size: 15px;
+    margin-right: 5px;
+
+}

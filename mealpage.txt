@@ -1,0 +1,41 @@
+ <div class=" meals-container d-flex flex-column justify-content-end">
+        <div class="meals-card-container ">
+            <h1>Happy Meals</h1>
+            <p class="mealsparagraph"> Discover the best foods over the 1,000 restuarant</p>
+            <button class="bk-button">Book Now</button>
+        </div>
+
+    </div>
+
+
+
+
+.meals-container {
+    background-image: url('https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/foodbg.png');
+    height: 135vh;
+    background-size: cover;
+    width: 100vw;
+}
+
+.meals-card-container {
+    background-color: #f6c56e;
+    font-family: Bree Serif;
+    padding: 10px;
+    border-top-left-radius: 20px;
+    color: #323f4b;
+
+
+}
+
+.meals-paragraph {
+    font-family: Roboto;
+}
+
+.bk-button {
+    border-radius: 10px;
+    font-size: 15px;
+    border-width: 0px;
+    padding: 8px;
+    margin: 10px;
+    width: 100px;
+}

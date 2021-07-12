@@ -1,0 +1,26 @@
+<body>
+    <div class="bg-container">
+        <div class="row">
+            <div class="col-4  bg-success">
+            <div class="container text-white">
+                <h1>Up</h1>
+                <p>Up is 2019 computer animated comedy drama adventure film</p>
+            </div>
+            </div>
+            <div class="col-4 bg-info">
+            <div class="container text-white">
+                <h1>Up</h1>
+                <p>Up is 2019 computer animated comedy drama adventure film</p>
+            </div>
+            </div>
+            <div class="col-4 bg-secondary  ">
+            <div class="container text-white">
+                <h1>Up</h1>
+                <p>Up is 2019 computer animated comedy drama adventure film</p>
+            </div>
+            </div>
+            
+        </div>
+    </div>
+
+</body>

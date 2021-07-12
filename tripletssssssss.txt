@@ -1,0 +1,29 @@
+integers = [int(number) for number in input().split()]
+K = int(input())
+
+
+triplets = []
+
+
+for i in range(len(integers)):
+    for j in range(i+1,len(integers)):
+        for k in range(j+1, len(integers)):
+            
+            a = integers[i]
+            b = integers[j]
+            c = integers[k]
+
+
+            if a+b+c == K:
+                triplets.append(tuple((a,b,c)))
+set1 = set(triplets)
+tuple = tuple(set1)
+tuple1 = sorted(tuple)
+
+if len(tuple1)!=0:
+    for triplet in tuple1:
+        print(triplet)
+
+
+else:
+    print("No Matching Triplets Found")

@@ -1,0 +1,11 @@
+seconds = int(input())
+if seconds < 60* 60:
+    minutes = seconds//60
+    seconds = seconds % 60
+    print( ("{} Minutes {} Seconds").format(minutes,seconds) )
+elif seconds >= 24 * 60 * 60:
+    days = seconds // (24*60*60)
+    print(("{} Days").format(days))
+elif seconds > 60*60 or seconds < 24*60*60:
+    hours = seconds % (24*60*60)// (60*60)
+    print(("{} Hours").format(hours))

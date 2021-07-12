@@ -1,0 +1,72 @@
+function createAndAppend(bookmarks) {
+    bookmarksListE1.classList.add("container", "mt-3", "mb-3")
+    let ListContainer = document.createElement("li");
+    ListContainer.classList.add("mb-3");
+    bookmarksListE1.appendChild(ListContainer);
+    let paraE1 = document.createElement("p");
+    paraE1.textContent = bookmarks.name;
+    ListContainer.appendChild(paraE1);
+    let anchorE1 = document.createElement("a");
+    anchorE1.href = bookmarks.url;
+    anchorE1.target = "_blank";
+    anchorE1.textContent = "Visit"
+    anchorE1.classList.add("btn", "btn-primary");
+    ListContainer.appendChild(anchorE1);
+}
+let bookmarks = [{
+    bookmarkId: "bookmark1",
+    name: siteNameInputE1.value,
+    url: siteUrlInputE1.value,
+}, ];
+
+
+function pushingelements(bookmarks) {
+    for (let i of bookmarks) {
+        createAndAppend(i);
+        console.log(i)
+    }
+}
+
+
+siteNameInputE1.addEventListener("change", function(event) {
+    if (siteNameInputE1.value === "") {
+        siteNameErrMsgE1.textContent = "Required*";
+    } else {
+        siteNameErrMsgE1.textContent = "";
+    }
+});
+
+siteUrlInputE1.addEventListener("change", function(event) {
+    if (siteUrlInputE1.value === "") {
+        siteUrlErrMsgE1.textContent = "Required*";
+    } else {
+        siteUrlErrMsgE1.textContent = "";
+    }
+});
+
+bookmarkFormE1.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    if ((siteNameInputE1.value === "")) {
+        siteNameErrMsgE1.textContent = "Required*";
+
+    } else {
+        siteNameErrMsgE1.textContent = "";
+
+    }
+    if (siteUrlInputE1.value === "") {
+        siteUrlErrMsgE1.textContent = "Required*";
+    } else {
+        siteUrlErrMsgE1.textContent = "";
+    }
+
+    if ((siteNameInputE1.value !== "") && (siteUrlInputE1.value !== "")) {
+        bookmarks[0].name = siteNameInputE1.value;
+        bookmarks[0].url = siteUrlInputE1.value;
+        siteNameErrMsgE1.textContent = "";
+        siteUrlErrMsgE1.textContent = "";
+        pushingelements(bookmarks);
+    }
+    
+
+});

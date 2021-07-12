@@ -1,0 +1,10 @@
+n = int(input())
+for i in range(1 , n +1):
+    if i >= 2 and i < n :
+        left = " " * (n-i)
+        hollo = " "* (i-1)
+        print(left + "/ " + hollo + "| ")
+    elif i==n:
+        print("/"+"_"*(i)+"| ")
+    else:
+        print(" " * (n-i) +"/ " + "|")

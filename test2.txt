@@ -1,0 +1,558 @@
+ <div class="container ">
+        <div class="d-flex flex-row justify-content-start">
+            <div class="box1">
+                <p class="para">Box1</p>
+            </div>
+            <div class="box2">
+                <p class="para">Box2</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="d-flex flex-row justify-content-center">
+                <div class="box3">
+                    <p class="para">Box3</p>
+                </div>
+                <div class="box4">
+                    <p class="para">Box4</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="container">
+            <div class="d-flex flex-row justify-content-end">
+                <div class="box5">
+                    <p class="para">Box5</p>
+                </div>
+                <div class="box6">
+                    <p class="para">Box6</p>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+.box1 {
+    background-color: #fdba74;
+    height: 100px;
+    width: 100px;
+}
+
+.para {
+    color: white;
+}
+
+.box2 {
+    background-color: #ea580c;
+    height: 100px;
+    width: 100px;
+}
+
+.box3 {
+    background-color: #a5b4fc;
+    height: 100px;
+    width: 100px;
+}
+
+.box4 {
+    background-color: #4f46e5;
+    height: 100px;
+    width: 100px;
+}
+
+.box5 {
+    background-color: #5eead4;
+    height: 100px;
+    width: 100px;
+}
+
+.box6 {
+    background-color: #0d9488;
+    height: 100px;
+    width: 100px;
+}
+
+
+
+......................................................................................................
+
+<body>
+    <div class="flexbox-container d-flex flex-column justify-content-end ">
+        <div class="d-flex flex-column justify-content-end">
+        <div class="flex-box-1 ">
+            <p class="para">Box1</p>
+        </div>
+        </div>
+        <div class="d-flex flex-column justify-content-end">
+        <div class="flex-box-2">
+            <p class="para">Box2</p>
+        </div>
+        </div>
+        </div>
+    </div>
+  </body>
+
+.flexbox-container {
+    background-color: #dff0d8;
+    height: 100vh;
+    background-size: cover;
+}
+
+.flex-box-1 {
+    background-color: #a78bfa;
+    height: 100px;
+    width: 100px;
+}
+.flex-box-2 {
+    background-color: #7b4ae1;
+    height: 100px;
+    width: 100px;
+}
+.para {
+    color: white;
+    font-family: Roboto;
+}
+
+
+.........................................................................
+
+<body>
+      <div class="container">
+          <div class="">
+          <img src="https://assets.ccbp.in/frontend/static-website/lotus-temple-img.png" class="img-size"/>
+         <h1 class="head">Lotus Temple</h1>
+          </div>
+          <div class="">
+          <img src="https://assets.ccbp.in/frontend/static-website/kerala-img.png" class="img-size"/>
+         <h1 class="head">Thiruvanthapuram</h1>
+          </div>
+          <div class="">
+          <img src="https://assets.ccbp.in/frontend/static-website/coimbatore-img.png" class="img-size"/>
+         <h1 class="head">Coimbatore</h1>
+          </div>
+      </div>
+    
+  </body>
+
+.img-size {
+    height: 200px;
+    width: 200px;
+}
+.head {
+    font-size: 30px;
+    font-family: Roboto;
+}
+
+
+.............................................................
+
+<body>
+      <div class="container ">
+          <h1> CSS BOX-MODEL PROPERTY-MARGIN</h1>
+      <div class="bg-container">
+      <div class="box-1">
+          <p class="head">Margin left</p>
+      </div>
+      <div class="box-2">
+          <p class="head2">Margin left</p>
+      </div>
+      <div class="box-3 ">
+          <p class="head3">Margin left</p>
+      </div>
+      </div>
+    </div>
+  </body>
+
+.bg-container {
+    background-color: #6c757d;
+    padding-top: 10px;
+    padding-bottom:10px;
+}
+
+.head {
+     color:white;
+    border-color: #000000;
+    border-style: none;
+    background-color: #343a40;
+    font-size: 13px;
+    margin-left: 10px;
+    
+}
+.head2 {
+     color:white;
+    border-color: #000000;
+    border-style: none;
+    background-color: #343a40;
+    font-size: 13px;
+    margin-right: 10px;
+    text-align: right;
+    
+}
+.head3 {
+     color:white;
+    border-color: #000000;
+    border-style: none;
+    background-color: #343a40;
+    font-size: 13px;
+    
+    
+    text-align: center;
+    
+    
+}
+.box-3 {
+    margin: 10px;
+}
+
+
+............................................................
+
+<body>
+    <div class="container">
+        <h1 class="head">Famous Sports</h1>
+        <div class="carousel slide">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators " data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators " data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://assets.ccbp.in/frontend/static-website/bootstrap-carousels-football-img.png" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://assets.ccbp.in/frontend/static-website/bootstrap-carousels-cricket-img.png" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://assets.ccbp.in/frontend/static-website/bootstrap-carousels-tennis-img.png" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+        </div>
+    </div>
+  </body>
+
+..................................................
+
+<body>
+    <div class="container">
+        <div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/5TR-blT4Ao4" allowfullscreen></iframe>
+</div>
+    </div>
+  </body>
+.............................................................
+
+<body>
+    <div class="container bg-daark" id="sectionhome">
+        <h1 class="head"> Animals</h1>
+        <div class="d-flex flex-row">
+            <div class="card-container d-flex flex-column">
+                <div class="">
+                    <img src="https://assets.ccbp.in/frontend/static-website/animals-turtle-img.png " class="img-size" />
+
+                </div>
+                <button class="c-btn btn-primary" onclick="display('sectionturtle')">View Details</button>
+            </div>
+            <div class="card-container d-flex flex-column">
+                <div class="">
+                    <img src="https://assets.ccbp.in/frontend/static-website/animals-raccoon-img.png " class="img-size" />
+
+                </div>
+                <button class="c-btn btn-primary" onclick="display('sectionbear')">View Details</button>
+            </div>
+        </div>
+        <div class="d-flex flex-row">
+            <div class="card-container d-flex flex-column">
+                <div class="">
+                    <img src="https://assets.ccbp.in/frontend/static-website/animals-kangaroo-img.png " class="img-size" />
+
+                </div>
+                <button class="c-btn btn-primary" onclick="display('sectionkangro')">View Details</button>
+            </div>
+            <div class="card-container d-flex flex-column">
+                <div class="">
+                    <img src="https://assets.ccbp.in/frontend/static-website/animals-lion-img.png" class="img-size" />
+
+                </div>
+                <button class="c-btn btn-primary" onclick="display('sectionlion')">View Details</button>
+            </div>
+        </div>
+    </div>
+    <div id="sectionturtle">
+    <div class="animalcard-container d-flex flex-column justify-content-end" >
+        <div class="card-cont">
+            <p class="par1"> sea turtle</p>
+            <h1 class="par2"> sea turtules are are hard to find</h1>
+        </div>
+        <button class="cc-btn btn-primary" onclick="display('sectionhome')">Back</button>
+
+    </div>
+    </div>
+    <div id="sectionbear">
+    <div class="animalcard-container2 d-flex flex-column justify-content-end" >
+        <div class="card-cont">
+            <p class="par1"> sea turtle</p>
+            <h1 class="par2"> sea turtules are are hard to find</h1>
+        </div>
+        <button class="cc-btn btn-primary" onclick="display('sectionhome')">Back</button>
+
+    </div>
+    </div>
+    <div id="sectionkangro">
+    <div class="animalcard-container3 d-flex flex-column justify-content-end" >
+        <div class="card-cont">
+            <p class="par1"> sea turtle</p>
+            <h1 class="par2"> sea turtules are are hard to find</h1>
+        </div>
+        <button class="cc-btn btn-primary" onclick="display('sectionhome')">Back</button>
+
+    </div>
+    </div>
+    <div id="sectionlion">
+    <div class="animalcard-container4 d-flex flex-column justify-content-end" >
+        <div class="card-cont">
+            <p class="par1"> sea turtle</p>
+            <h1 class="par2"> sea turtules are are hard to find</h1>
+        </div>
+        <button class="cc-btn btn-primary" onclick="display('sectionhome')">Back</button>
+
+    </div>
+    </div>
+    <script type="text/javascript" src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/js/ccbp-ui-kit.js"></script>
+</body>
+
+
+.bg-daark {
+    background-color: black;
+    height: 110vh;
+    background-size: cover;
+}
+
+.head {
+    color: white;
+}
+
+.img-size {
+    height: 130px;
+    width: 130px;
+    margin: 5px;
+}
+
+.c-btn {
+    height: 40px;
+    width: 130px;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.animalcard-container {
+    background-image: url('https://assets.ccbp.in/frontend/static-website/animals-turtle-bg.png');
+    background-size: cover;
+    height: 100vh;
+    padding: 10px;
+}
+
+.animalcard-container2 {
+    background-image: url('https://assets.ccbp.in/frontend/static-website/animals-raccoon-bg.png');
+    background-size: cover;
+    height: 100vh;
+    padding: 10px;
+}
+
+.animalcard-container3 {
+    background-image: url('https://assets.ccbp.in/frontend/static-website/animals-kangaroo-bg.png');
+    background-size: cover;
+    height: 100vh;
+    padding: 10px;
+}
+
+.animalcard-container4 {
+    background-image: url('https://assets.ccbp.in/frontend/static-website/animals-lion-bg.png');
+    background-size: cover;
+    height: 100vh;
+}
+
+.par1 {
+    font-size: 15px;
+    color: white;
+}
+
+.par2 {
+    color: white;
+    font-size: 20px;
+}
+
+.cc-btn {
+    height: 40px;
+    width: 80px;
+    border-radius: 5px;
+}
+
+
+..................................................
+
+ <body>
+   <div class="conatiner">
+       <div class="list1">
+           <h1> Hobbies</h1>
+           <ul class="list-1">
+               <li>painting</li>
+               <li>reading books</li>
+               <li>reading books</li>
+           </ul>
+       </div>
+       <div class="list1">
+           <h1> Games</h1>
+           <ul class="list-2">
+               <li>painting</li>
+               <li>reading books</li>
+               <li>reading books</li>
+           </ul>
+       </div>
+       <div class="list1">
+           <h1> Subjects</h1>
+           <ol class="list-3">
+               <li>painting</li>
+               <li>reading books</li>
+               <li>reading books</li>
+           </ol>
+       </div>
+       <div class="list1">
+           <h1> Engineering</h1>
+           <ol class="list-4">
+               <li>painting</li>
+               <li>reading books</li>
+               <li>reading books</li>
+           </ol>
+       </div>
+       <div class="list1">
+           <h1> Mobiles</h1>
+           <ol class="list-5">
+               <li>painting</li>
+               <li>reading books</li>
+               <li>reading books</li>
+           </ol>
+       </div>
+       <div class="list1">
+           <h1> Stationeries</h1>
+           <ol class="list-6">
+               <li>painting</li>
+               <li>reading books</li>
+               <li>reading books</li>
+           </ol>
+       </div>
+       <div class="list1">
+           <h1> Technologies</h1>
+           <ol class="list-7">
+               <li>painting</li>
+               <li>reading books</li>
+               <li>reading books</li>
+           </ol>
+       </div>
+   </div>
+  </body>
+
+
+.list1 {
+    font-family: roboto;
+}
+.list-1 {
+    list-style-type: square;
+}
+.list-2 {
+    list-style-type: circle;
+}
+.list-3 {
+    list-style-type: lower-roman;
+}
+.list-4 {
+    list-style-type: upper-roman;
+}
+.list-5 {
+    list-style-type: lower-alpha;
+    
+}
+.list-6 {
+    list-style-type: upper-alpha;
+}
+.list-7 {
+    list-style-type: decimal;
+}
+
+.......................................................
+
+<body>
+    <div class="b-container d-flex flex-column justify-content-center">
+        <div class="d-flex flex-row justify-content-center">
+        <div class="img">
+            <img src="https://assets.ccbp.in/frontend/static-website/profile-img.png" class="imgg"/>
+        </div>
+        <div class=" m-2" >
+            <h1 class="haed">jenny</h1>
+            <h1 class="par"> software</h1>
+            <p class="par"> Working at <a href="https://www.google.co.in/" target="_blank">   >Google</a></p>
+         <a href="#biosection" target="_blank"> <img src=" https://assets.ccbp.in/frontend/static-website/bio-img.png" class="siz" /></a> 
+        </div>
+        </div>
+    </div>
+    <div id="biosection">
+    <div class="bio-con p-3" >
+        <h1> Bio</h1>
+        <hr />
+        <p> When clicked on the bio image, the page should navigate to the bio section.
+        When clicked on the bio image, the page should navigate to the bio section.<br />
+        When clicked on the bio image, the page should navigate to the bio section.</p>
+    </div>
+    </div>
+  </body>
+
+.imgg {
+    height: 150px;
+    width: 150px;
+}
+
+.b-container {
+    padding: 5px;
+    height: 100vh;
+}
+
+.siz{
+    height: 40px;
+    width: 40px;
+}
+.haed {
+    font-size: 16px;
+    font-family: Roboto;
+    font-weight: bold;
+}
+.par {
+    font-size: 13px;
+    font-family: Roboto;
+}
+.google{
+    color: Blue;
+}
+
