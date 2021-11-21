@@ -1,0 +1,1696 @@
+code
+import React, { Fragment } from "react";
+
+import moment from "moment";
+
+import APIUrlConstants from "../../../Common/apiURLConstants";
+
+import APIHelper from "../../../Common/apiHelper";
+
+import { withRouter } from "react-router-dom";
+
+import { connect } from "react-redux";
+
+import { Image as Img } from "react-bootstrap";
+
+import { Bar, Pie } from "react-chartjs-2";
+
+ 
+
+class TeamAttendance extends React.Component {
+
+  selectedDays = "";
+
+ 
+
+  constructor(props) {
+
+    super(props);
+
+    this.width = props.width || "350px";
+
+    this.style = props.style || {};
+
+    this.style.width = this.width; // add this
+
+    this.state = {
+
+      dateContext: moment(),
+
+      today: moment(),
+
+      showMonthPopup: false,
+
+      showYearPopup: false,
+
+      selectedDay: "",
+
+      LeaveDates: null,
+
+      Type: this.props.Type,
+
+      timesheetDates: [],
+
+      leaveDates: [],
+
+      holidayDates: [],
+
+      currentMonthCall: false,
+
+      days:
+
+        this.props.Type == "Weekly"
+
+          ? this.getDateRange(new Date())
+
+          : "" + new Date(),
+
+      startDate: "",
+
+      endDate: "",
+
+      TeamData: [],
+
+      className: "",
+
+      weekDates: [],
+
+      showLoading: true,
+
+    };
+
+  }
+
+ 
+
+  componentWillReceiveProps(nextProps) {
+
+    this.setState(
+
+      (prevState) => ({
+
+        ...prevState,
+
+        employeeId: nextProps.employeeId,
+
+      }),
+
+      () => {}
+
+    );
+
+  }
+
+ 
+
+  componentDidMount() {}
+
+ 
+
+  componentWillMount() {}
+
+ 
+
+  getTeamAttendance(employeeId, employerId, startDate, endDate, weekdates) {
+
+    APIHelper.get(
+
+      APIUrlConstants.GET_TEAM_ATTENDANCE(
+
+        employeeId,
+
+        employerId,
+
+        startDate,
+
+        endDate
+
+      )
+
+    )
+
+      .then((data) => {
+
+        if (data && data.hasOwnProperty("recordsets")) {
+
+          this.setState(
+
+            (prevState) => ({
+
+              ...prevState,
+
+              TeamData: data.recordsets[0],
+
+              weekDates: weekdates,
+
+              showLoading: false,
+
+            }),
+
+            () => {}
+
+          );
+
+        } else {
+
+          this.setState((prevState) => ({
+
+            ...prevState,
+
+            showLoading: false,
+
+          }));
+
+        }
+
+      })
+
+      .catch((error) => {
+
+        console.log("Error", +error);
+
+      });
+
+  }
+
+ 
+
+  moment = moment.updateLocale("en", {
+
+    week: {
+
+      dow: 1,
+
+    },
+
+  });
+
+ 
+
+  weekdays = moment.weekdays(true); //["Sunday", "Monday", "Tuesday", "Wednessday", "Thursday", "Friday", "Saturday"]
+
+  weekdaysShort = moment.weekdaysShort(true); // ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+
+  months = moment.months();
+
+ 
+
+  year = () => {
+
+    return this.state.dateContext.format("Y");
+
+  };
+
+  month = () => {
+
+    return this.state.dateContext.format("MMMM");
+
+  };
+
+  daysInMonth = () => {
+
+    return this.state.dateContext.daysInMonth();
+
+  };
+
+  currentDate = () => {
+
+    return this.state.dateContext.get("date");
+
+  };
+
+  currentDay = () => {
+
+    return this.state.dateContext.format("D");
+
+  };
+
+ 
+
+  getMonth = () => {
+
+    return this.state.dateContext.format("MM");
+
+  };
+
+ 
+
+  currentMonth = () => {
+
+    return new Date().getMonth() + 1;
+
+  };
+
+ 
+
+  firstDayOfMonth = () => {
+
+    let dateContext = this.state.dateContext;
+
+    let firstDay = moment(dateContext).startOf("month").format("d"); // Day of week 0...1..5...6
+
+    if (firstDay == 0) return 6;
+
+    else return firstDay - 1;
+
+  };
+
+ 
+
+  getDateRange(date) {
+
+    let dt = new Date(date); // current date of week
+
+    var getday = dt.getDay();
+
+    if (getday == 0) getday = 6;
+
+    else getday = getday - 1;
+
+    let wkStart = new Date(new Date(dt).setDate(dt.getDate() - getday));
+
+    let wkEnd = new Date(new Date(wkStart).setDate(wkStart.getDate() + 6));
+
+    let wkDates = [];
+
+    for (
+
+      let i = moment(wkStart).format("DD");
+
+      i <= moment(wkEnd).format("DD");
+
+      i++
+
+    ) {
+
+      wkDates.push(i);
+
+    }
+
+    let weekdates = this.getDates(wkStart, wkEnd);
+
+    this.getTeamAttendance(
+
+      this.props.UserInfo.employeeId,
+
+      this.props.UserInfo.employerId,
+
+      moment(wkStart).format("DD-MMM-YYYY"),
+
+      moment(wkEnd).format("DD-MMM-YYYY"),
+
+      weekdates
+
+    );
+
+    this.selectedDays = wkStart + "To" + wkEnd;
+
+    return wkStart + "To" + wkEnd;
+
+  }
+
+ 
+
+  getDates(startDate, stopDate) {
+
+    var dateArray = [];
+
+    var currentDate = Date.parse(startDate);
+
+    var stopDate = Date.parse(stopDate);
+
+    while (currentDate <= stopDate) {
+
+      dateArray.push(new Date(currentDate));
+
+      currentDate = moment(currentDate).add(1, "days");
+
+    }
+
+    return dateArray;
+
+  }
+
+ 
+
+  getCustomWeek = (e, type) => {
+
+    e.preventDefault();
+
+    let calenderDays = "";
+
+    if (this.state.Type == "Weekly") {
+
+      let today = new Date(this.state.days.split("To")[0]);
+
+      let weekDate = new Date(
+
+        today.getFullYear(),
+
+        today.getMonth(),
+
+        type == "p" ? today.getDate() - 7 : today.getDate() + 7
+
+      );
+
+      calenderDays = this.getDateRange(weekDate);
+
+    } else {
+
+      let today = new Date(this.state.days);
+
+      calenderDays =
+
+        "" +
+
+        new Date(
+
+          today.getFullYear(),
+
+          today.getMonth(),
+
+          type == "p" ? today.getDate() - 1 : today.getDate() + 1
+
+        );
+
+      this.selectedDays = calenderDays;
+
+    }
+
+    this.setState(
+
+      (prevState) => ({
+
+        ...prevState,
+
+        days: calenderDays,
+
+        showLoading: true,
+
+      }),
+
+      () => {}
+
+    );
+
+  };
+
+ 
+
+  checkClass(IsoptionalHoliday, Processedattendancestatus, leaveStatus) {
+
+    let className = "";
+
+    if (IsoptionalHoliday == "Y") {
+
+      className = "optionalHoliday-bg";
+
+    } else if (Processedattendancestatus == "Absent") {
+
+      className = "team-bg-red";
+
+    } else if (Processedattendancestatus == "Holiday") {
+
+      className = "team-bg-blue";
+
+    } else if (Processedattendancestatus == "Weekly Off") {
+
+      className = "team-bg-gray team-bg-color";
+
+    } else if (Processedattendancestatus == "Absent-Full Day") {
+
+      className = "team-bg-red";
+
+    } else if (Processedattendancestatus == "Absent-Half Day") {
+
+      className = "halfdayabsent";
+
+    } else if (Processedattendancestatus == "Present-Half Day") {
+
+      className = "halfdayabsent";
+
+    }
+
+    if (leaveStatus == "Approved") {
+
+      className = "team-bg-yellow";
+
+    }
+
+    if (leaveStatus == "Pending") {
+
+      className = "team-bg-yellow";
+
+    }
+
+    return className;
+
+  }
+
+ 
+
+  calculateTimeInHours(getTime) {
+
+    let tempArr = getTime.split(":");
+
+    let h = parseInt(tempArr[0]);
+
+    let m = parseInt(tempArr[1]);
+
+    m = m / 60;
+
+    let hr = h + m;
+
+    hr = Math.round(hr * 100) / 100;
+
+    return hr;
+
+  }
+
+ 
+
+  totalHours(data) {
+
+    if (data.length > 1) {
+
+      let h1 = Number(data[0].split(":")[0]);
+
+      let m1 = Number(data[0].split(":")[1]);
+
+      for (let i = 1; i < data.length; i++) {
+
+        let h2 = Number(data[i].split(":")[0]);
+
+        let m2 = Number(data[i].split(":")[1]);
+
+        if (Number(m1) + m2 > 60) {
+
+          m1 = Number(m1) + m2 - 60;
+
+          if (m1 <= 9) {
+
+            m1 = "0" + m1;
+
+          }
+
+          h1 = Number(h1 + h2) + 1;
+
+        } else {
+
+          m1 = Number(m1) + m2;
+
+          h1 = h1 + h2;
+
+        }
+
+      }
+
+      return h1 + ":" + m1;
+
+    } else {
+
+      let h1 = Number(data[0].split(":")[0]);
+
+      let m1 = Number(data[0].split(":")[1]);
+
+      return h1 + ":" + m1;
+
+    }
+
+  }
+
+ 
+
+  totalShortHours(data) {
+
+    if (data.length > 1) {
+
+      let h1 = Number(data[0].split(".")[0]);
+
+      let m1 = Number(data[0].split(".")[1]);
+
+      m1 ? (m1 = m1) : (m1 = 0);
+
+      for (let i = 1; i < data.length; i++) {
+
+        let h2 = Number(data[i].split(".")[0]);
+
+        let m2 = Number(data[i].split(".")[1]);
+
+        m2 ? (m2 = m2) : (m2 = 0);
+
+ 
+
+        if (Number(m1) + m2 > 60) {
+
+          m1 = Number(m1) + m2 - 60;
+
+          if (m1 <= 9) {
+
+            m1 = "0" + m1;
+
+          }
+
+          h1 = Number(h1 + h2) + 1;
+
+        } else {
+
+          m1 = Number(m1) + m2;
+
+          if (m1 <= 9) {
+
+            m1 = "0" + m1;
+
+          }
+
+          h1 = h1 + h2;
+
+        }
+
+      }
+
+      return h1 + ":" + m1;
+
+    } else {
+
+      let h1 = Number(data[0].split(".")[0]);
+
+      let m1 = Number(data[0].split(".")[1]);
+
+      m1 ? (m1 = m1) : (m1 = 0);
+
+      if (m1 <= 9) {
+
+        m1 = "0" + m1;
+
+      }
+
+ 
+
+      return h1 + ":" + m1;
+
+    }
+
+  }
+
+ 
+
+  timeConvert(n) {
+
+    var num = n;
+
+    var hours = num / 60;
+
+    var rhours = Math.floor(hours);
+
+    var minutes = (hours - rhours) * 60;
+
+    var rminutes = Math.round(minutes);
+
+    if (
+
+      rhours == 0 ||
+
+      rhours == 1 ||
+
+      rhours == 2 ||
+
+      rhours == 3 ||
+
+      rhours == 4 ||
+
+      rhours == 5 ||
+
+      rhours == 6 ||
+
+      rhours == 7 ||
+
+      rhours == 8 ||
+
+      rhours == 9
+
+    ) {
+
+      rhours = "0" + rhours;
+
+    } else {
+
+      rhours = rhours;
+
+    }
+
+    return rhours + ":" + (rminutes == 0 ? "00" : rminutes);
+
+  }
+
+ 
+
+  render() {
+
+    const temp = [...this.state.TeamData];
+
+    const weekd = [...this.state.weekDates];
+
+ 
+
+    const splitdata = _(temp)
+
+      .groupBy("EmployeeID")
+
+      .map((value, key) => ({ EmployeeID: key, users: value }))
+
+      .value();
+
+ 
+
+    let tempArr = splitdata.map((i, index) => {
+
+      let dataArr = [];
+
+      i.users.map((item, ind) => {
+
+        dataArr.push({
+
+          EmployeeID: item.EmployeeID,
+
+          EmpName: item.EmpName,
+
+          Attendancedate: item.Attendancedate,
+
+          ActualWorkedHrs: item.ActualWorkedHrs,
+
+          IsoptionalHoliday: item.IsoptionalHoliday,
+
+          Processedattendancestatus: item.Processedattendancestatus,
+
+          ShortfallHrs: item.daysortfallhrs,
+
+          LeaveStatus: item.Leavestatus,
+
+          LeaveType: item.leavetype,
+
+        });
+
+      });
+
+      return dataArr;
+
+    });
+
+ 
+
+    let tempDateArr = [];
+
+    for (var i = 0; i < tempArr.length; i++) {
+
+      let weekdata =
+
+        this.state.weekDates && this.state.weekDates.length > 0
+
+          ? this.state.weekDates
+
+          : [];
+
+      for (var k = 0; k < weekdata.length; k++) {
+
+        let dayData = tempArr[i].filter((item, l) => {
+
+          if (
+
+            moment(item.Attendancedate).format("DD-MMM-YYYY") ==
+
+            moment(weekdata[k]).format("DD-MMM-YYYY")
+
+          ) {
+
+            tempDateArr.push(item);
+
+            return item;
+
+          } else {
+
+          }
+
+        });
+
+        if (!(dayData && dayData.length)) {
+
+          let EmployeeId = tempArr[i].filter((i) => {
+
+            return i.EmployeeID;
+
+          });
+
+          tempDateArr.push({
+
+            EmployeeID: EmployeeId[0].EmployeeID,
+
+            EmpName: EmployeeId[0].EmpName,
+
+            Attendancedate: weekdata[k],
+
+            ActualWorkedHrs: "00:00",
+
+            IsoptionalHoliday: "",
+
+            Processedattendancestatus: "",
+
+            ShortfallHrs: 8.0,
+
+            LeaveStatus: "",
+
+            LeaveType: "",
+
+          });
+
+          // tempArr[i].push({ "EmployeeID": "", "EmpName": "", "Attendancedate": weekdata[k], "ActualWorkedHrs": "00:00", "IsoptionalHoliday": "", "Processedattendancestatus": "" })
+
+        }
+
+      }
+
+    }
+
+ 
+
+    const splitdatamodified = _(tempDateArr)
+
+      .groupBy("EmployeeID")
+
+      .map((value, key) => ({ EmployeeID: key, users: value }))
+
+      .value();
+
+ 
+
+    let curDate = new Date();
+
+    let today = weekd.filter((i) => i.getDay() == curDate.getDay());
+
+    let todayDay = today && today.length > 0 ? today : null;
+
+    let todayClass = "br-radius";
+
+ 
+
+    let monday = splitdatamodified
+
+      .map((item, i) => {
+
+        if (
+
+          item.users[0].LeaveStatus == "Approved" ||
+
+          item.users[0].LeaveStatus == "Pending"
+
+        ) {
+
+          return { Name: item.users[0].EmpName };
+
+        }
+
+      })
+
+      .filter(Boolean);
+
+ 
+
+    let tuesday = splitdatamodified
+
+      .map((item, i) => {
+
+        if (
+
+          item.users[1].LeaveStatus == "Approved" ||
+
+          item.users[1].LeaveStatus == "Pending"
+
+        ) {
+
+          return { Name: item.users[0].EmpName };
+
+        }
+
+      })
+
+      .filter(Boolean);
+
+ 
+
+    let wednesday = splitdatamodified
+
+      .map((item, i) => {
+
+        if (
+
+          item.users[2].LeaveStatus == "Approved" ||
+
+          item.users[2].LeaveStatus == "Pending"
+
+        ) {
+
+          return { Name: item.users[0].EmpName };
+
+        }
+
+      })
+
+      .filter(Boolean);
+
+ 
+
+    let thursday = splitdatamodified
+
+      .map((item, i) => {
+
+        if (
+
+          item.users[3].LeaveStatus == "Approved" ||
+
+          item.users[3].LeaveStatus == "Pending"
+
+        ) {
+
+          return { Name: item.users[0].EmpName };
+
+        }
+
+      })
+
+      .filter(Boolean);
+
+ 
+
+    let friday = splitdatamodified
+
+      .map((item, i) => {
+
+        if (
+
+          item.users[4].LeaveStatus == "Approved" ||
+
+          item.users[4].LeaveStatus == "Pending"
+
+        ) {
+
+          return { Name: item.users[0].EmpName };
+
+        }
+
+      })
+
+      .filter(Boolean);
+
+ 
+
+    let saturday = splitdatamodified
+
+      .map((item, i) => {
+
+        if (
+
+          item.users[5].LeaveStatus == "Approved" ||
+
+          item.users[5].LeaveStatus == "Pending"
+
+        ) {
+
+          return { Name: item.users[0].EmpName };
+
+        }
+
+      })
+
+      .filter(Boolean);
+
+ 
+
+    let sunday = splitdatamodified
+
+      .map((item, i) => {
+
+        if (
+
+          item.users[6].LeaveStatus == "Approved" ||
+
+          item.users[6].LeaveStatus == "Pending"
+
+        ) {
+
+          return { Name: item.users[0].EmpName };
+
+        }
+
+      })
+
+      .filter(Boolean);
+
+ 
+
+    // console.log(splitdatamodified, "tempUser")
+
+ 
+
+    // console.log(tuesday, "tempSplit")
+
+ 
+
+    
+
+    const options = {
+
+      title: {
+
+        display: true,
+
+      },
+
+ 
+
+      plugins: {
+
+        legend: { display: false },
+
+        title: { display: true, text: "Message Count" },
+
+        tooltip: {
+
+          enabled: true,
+
+          
+
+          callbacks: {
+
+            label: (tooltipItem,data) => {
+
+              console.log(tooltipItem, "data");
+
+              let i = tooltipItem.dataIndex;
+
+              return (
+
+                tooltipItem.dataset.productNames[i] +
+
+                ": " +
+
+                tooltipItem.dataset.data[i]
+
+              );
+
+            },
+
+          },
+
+        },
+
+      },
+
+    };
+
+ 
+
+    const data = {
+
+      labels: this.weekdaysShort,
+
+      datasets: [
+
+        {
+
+          label: "team",
+
+          productNames: [
+
+            `${monday.map((e) => e.Name)}`,
+
+            `${tuesday.map((e) => e.Name)}`,
+
+            `${wednesday.map((e) => e.Name)}`,
+
+            `${thursday.map((e) => e.Name)}`,
+
+            `${friday.map((e) => e.Name)}`,
+
+            `${saturday.map((e) => e.Name)}`,
+
+            `${sunday.map((e) => e.Name)}`,
+
+          ],
+
+          backgroundColor: [
+
+            "rgb(255, 99, 132)",
+
+            "rgb(255, 159, 64)",
+
+            "rgb(255, 205, 86)",
+
+            "rgb(75, 192, 192)",
+
+            "rgb(54, 162, 235)",
+
+          ],
+
+          borderColor: [
+
+            "rgba(255, 99, 132, 0.2)",
+
+            "rgba(255, 159, 64, 0.2)",
+
+            "rgba(255, 205, 86, 0.2)",
+
+            "rgba(75, 192, 192, 0.2)",
+
+            "rgba(54, 162, 235, 0.2)",
+
+          ],
+
+ 
+
+          data: [
+
+            monday.length,
+
+            tuesday.length,
+
+            wednesday.length,
+
+            thursday.length,
+
+            friday.length,
+
+            sunday.length,
+
+            saturday.length,
+
+          ],
+
+          barPercentage:0.5,
+
+        },
+
+      ],
+
+    };
+
+ 
+
+    return (
+
+      <div>
+
+        {this.state.showLoading ? (
+
+          <Img
+
+            src="../../Images/ajaxloader.gif"
+
+            style={{ position: "relative", top: "180px", left: "50%" }}
+
+          />
+
+        ) : (
+
+          <Fragment>
+
+            <div className="bottom-header">
+
+              <div className="month">
+
+                <p className="attendance-week">
+
+                  {" "}
+
+                  Week
+
+                  {this.props.Type == "Weekly" ? (
+
+                    <span className="dateRange">
+
+                      {" "}
+
+                      {this.state.days.split("To")[0].substring(4, 11)} -{" "}
+
+                      {this.state.days.split("To")[1].substring(4, 15)}{" "}
+
+                    </span>
+
+                  ) : (
+
+                    <span className="dateRange">
+
+                      {this.state.days.substring(0, 15)}{" "}
+
+                    </span>
+
+                  )}
+
+                </p>
+
+              </div>
+
+              <div className="right-icon">
+
+                <a
+
+                  href="javascript:void(0)"
+
+                  onClick={(e) => this.getCustomWeek(e, "p")}
+
+                >
+
+                  <i className="fa fa-angle-left" aria-hidden="true"></i>
+
+                </a>
+
+                <a
+
+                  href="javascript:void(0)"
+
+                  onClick={(e) => this.getCustomWeek(e, "n")}
+
+                >
+
+                  <i className="fa fa-angle-right" aria-hidden="true"></i>
+
+                </a>
+
+ 
+
+                <a href="javascript:void(0)">
+
+                  <button
+
+                    type="button"
+
+                    style={{ border: "none" }}
+
+                    data-toggle="modal"
+
+                    data-target="#exampleModalLong"
+
+                  >
+
+                    <i className="fa fa-bar-chart"></i>
+
+                  </button>
+
+                </a>
+
+                <div
+
+                  className="modal fade"
+
+                  style={{
+
+                    width: "800px",
+
+                    height: "800px",
+
+                    margin: "0 auto",
+
+                    padding: "20px",
+
+                  }}
+
+                  id="exampleModalLong"
+
+                  tabindex="-1"
+
+                  role="dialog"
+
+                  aria-labelledby="exampleModalLongTitle"
+
+                  aria-hidden="true"
+
+                >
+
+                  <div className="modal-dialog" role="document">
+
+                    <div className="modal-content">
+
+                      <div className="modal-header">
+
+                        <h5 className="modal-title" id="exampleModalLongTitle">
+
+                          Team Attendace Chart
+
+                        </h5>
+
+                        <button
+
+                          type="button"
+
+                          class="close"
+
+                          data-dismiss="modal"
+
+                          aria-label="Close"
+
+                        >
+
+                          <span aria-hidden="true">&times;</span>
+
+                        </button>
+
+                      </div>
+
+                      <div className="modal-body">
+
+                        <div>
+
+                          {monday.length == 0 &&
+
+                          tuesday.length == 0 &&
+
+                          wednesday.length == 0 &&
+
+                          thursday.length == 0 &&
+
+                          friday.length == 0 ? (
+
+                            <h2 className="text-center text-danger text-bold">
+
+                              {" "}
+
+                              No one is on leave in this week{" "}
+
+                            </h2>
+
+                          ) : (
+
+                            <Bar data={data} height={150} options={options} />
+
+                          )}
+
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <div className="tab-content-body clearfix team-attendance">
+
+              <div className="col-md-12 mrb-15 team-attendance-header">
+
+                <div className="col-md-3 pd-0">
+
+                  <div className="name">
+
+                    <p>Name</p>
+
+                  </div>
+
+                </div>
+
+                <div className="col-md-8 pd-0">
+
+                  {todayDay && todayDay.length > 0 ? (
+
+                    <div className="attended-day">
+
+                      <p
+
+                        className={
+
+                          todayDay[0].getDay() == 1 ? todayClass : null
+
+                        }
+
+                      >
+
+                        M
+
+                      </p>
+
+                      <p
+
+                        className={
+
+                          todayDay[0].getDay() == 2 ? todayClass : null
+
+                        }
+
+                      >
+
+                        T
+
+                      </p>
+
+                      <p
+
+                        className={
+
+                          todayDay[0].getDay() == 3 ? todayClass : null
+
+                        }
+
+                      >
+
+                        W
+
+                      </p>
+
+                      <p
+
+                        className={
+
+                          todayDay[0].getDay() == 4 ? todayClass : null
+
+                        }
+
+                      >
+
+                        T
+
+                      </p>
+
+                      <p
+
+                        className={
+
+                          todayDay[0].getDay() == 5 ? todayClass : null
+
+                        }
+
+                      >
+
+                        F
+
+                      </p>
+
+                      <p
+
+                        className={
+
+                          todayDay[0].getDay() == 6 ? todayClass : null
+
+                        }
+
+                      >
+
+                        S
+
+                      </p>
+
+                      <p
+
+                        className={
+
+                          todayDay[0].getDay() == 7 ? todayClass : null
+
+                        }
+
+                      >
+
+                        S
+
+                      </p>
+
+                    </div>
+
+                  ) : null}
+
+                </div>
+
+                <div className="col-md-1 pd-0">
+
+                  <div className="hours">
+
+                    <p>Hours</p>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div className="timsheet-info-outer">
+
+                {tempArr && tempArr.length > 0 ? (
+
+                  splitdatamodified.map((item, ind) => {
+
+                    let user = item.users.filter(
+
+                      (t) => t.EmployeeID == item.EmployeeID
+
+                    );
+
+                    const capacity = item.users.map((i) => i.ActualWorkedHrs);
+
+                    const shortCapacity = item.users.map((i) => i.ShortfallHrs);
+
+ 
+
+                    let parsedcapacityhours;
+
+                    let CompleteCapacity;
+
+                    let parsedDataHrs;
+
+                    let shortParsedcapacityhours;
+
+                    let shortCompleteCapacity;
+
+                    let shortParsedDataHrs;
+
+ 
+
+                    if (capacity == 0) {
+
+                      CompleteCapacity = "0.0";
+
+                    } else {
+
+                      parsedcapacityhours = capacity.filter(Boolean);
+
+                      parsedDataHrs = parsedcapacityhours.map((data) =>
+
+                        data.toString()
+
+                      );
+
+                      CompleteCapacity = this.totalHours(parsedDataHrs);
+
+                    }
+
+                    if (shortCapacity.filter(Boolean).length == 0) {
+
+                      shortCompleteCapacity = "0:0";
+
+                    } else {
+
+                      shortParsedcapacityhours = shortCapacity.filter(Boolean);
+
+                      shortParsedDataHrs = shortParsedcapacityhours
+
+                        .map((data) => data.toString())
+
+                        .slice(0, 5);
+
+                      shortCompleteCapacity =
+
+                        this.totalShortHours(shortParsedDataHrs);
+
+                    }
+
+                    return (
+
+                      <div className="timsheet-info clearfix">
+
+                        <div className="col-md-12 pd-0 mrb-15">
+
+                          <div className="col-md-3 pd-0">
+
+                            <div className="CandidateName">
+
+                              <p>{user[0].EmpName}</p>
+
+                            </div>
+
+                          </div>
+
+                          <div
+
+                            className="col-md-8 pd-0"
+
+                            style={{ display: "flex" }}
+
+                          >
+
+                            <div className="candidateTiminig">
+
+                              {item.users.map((i, index) => {
+
+                                return (
+
+                                  <p
+
+                                    title={
+
+                                      i.LeaveStatus == "Approved" ||
+
+                                      i.LeaveStatus == "Pending"
+
+                                        ? `${i.LeaveType}-${i.LeaveStatus}`
+
+                                        : ""
+
+                                    }
+
+                                    key={index}
+
+                                    style={{ cursor: "pointer" }}
+
+                                    className={this.checkClass(
+
+                                      i.IsoptionalHoliday,
+
+                                      i.Processedattendancestatus,
+
+                                      i.LeaveStatus
+
+                                    )}
+
+                                  >
+
+                                    {i.ActualWorkedHrs}
+
+                                  </p>
+
+                                );
+
+                              })}
+
+                            </div>
+
+                          </div>
+
+                          <div className="col-md-1 pd-0">
+
+                            <div className="candidateHours">
+
+                              <p
+
+                                style={{ cursor: "pointer" }}
+
+                                title={`Shortfall - ${shortCompleteCapacity}`}
+
+                              >
+
+                                {CompleteCapacity}
+
+                              </p>
+
+                            </div>
+
+                          </div>
+
+                        </div>
+
+                      </div>
+
+                    );
+
+                  })
+
+                ) : (
+
+                  <span className="noData">No Data</span>
+
+                )}
+
+              </div>
+
+              <div className="col-md-12 col-sm-12 col-xs-12 col-lg-12 small pl-0 pr-0 mt-5 text-center">
+
+                <div className="chartFooterLeagend">
+
+                  <ul>
+
+                    <li>
+
+                      <span className="yellow"></span> Leave
+
+                    </li>
+
+                    <li>
+
+                      <span className="blue"></span>Holiday
+
+                    </li>
+
+                    <li>
+
+                      <span className="purple"></span>Opt.Holiday
+
+                    </li>
+
+                    <li>
+
+                      <span className="lightRed"></span>Absent
+
+                    </li>
+
+                    {/* <li>
+
+                      <span className="team-bg-color"></span>Week End
+
+                    </li> */}
+
+                    <li>
+
+                      <span className="halfDaylegend"></span> Half Day
+
+                    </li>
+
+                  </ul>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </Fragment>
+
+        )}
+
+      </div>
+
+    );
+
+  }
+
+}
+
+ 
+
+const mapStateToProps = (state) => {
+
+  return {
+
+    UserInfo: state.ActiveUsersReducer.user,
+
+    WeekDAy: state.ActiveUsersReducer.week,
+
+  };
+
+};
+
+ 
+
+export default withRouter(connect(mapStateToProps)(TeamAttendance));
+
+ 
+
+ 
