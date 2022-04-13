@@ -1,0 +1,34 @@
+(No title)
+onsetvalueforhr =() =>{
+
+        let HrFeedbackMultiSelectedValue = '';
+
+        if (this.state.RecruitmentManagementObject.HRFeedbackSection.value != '' && this.state.RecruitmentManagementObject.HRFeedbackSection.value != null) {
+
+            this.state.RecruitmentManagementObject.HRFeedbackSection.value.forEach((ele, index) => {
+
+                if (ele != '') {
+
+                    if (ele != '' && HrFeedbackMultiSelectedValue == '') {
+
+                        HrFeedbackMultiSelectedValue = ele.value
+
+                    } else if (ele != '') {
+
+                        HrFeedbackMultiSelectedValue = HrFeedbackMultiSelectedValue + ',' + ele.value
+
+                    }
+
+                }
+
+            })
+
+        }
+
+        HrFeedbackMultiSelectedValue == ' ' ? 0 : "'" + HrFeedbackMultiSelectedValue.toString() + "'"
+
+        console.log(HrFeedbackMultiSelectedValue, "finaltouchcc")
+
+    }
+
+ 
